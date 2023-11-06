@@ -1,10 +1,57 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const sizes = {
+  small: css`
+    width: 15.4rem;
+    height: 5.6rem;
+  `,
+  medium: css`
+    width: 24rem;
+    height: 6.4rem;
+  `,
+  large: css`
+    width: 35.3rem;
+    height: 6.4rem;
+  `,
+};
 
 const Button = styled.button`
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 
-  &:hover {
-    background-color: black;
+  padding: 1.9rem 2.4rem;
+  border: 1px solid var(--color-M_01);
+  border-radius: var(--border-radius);
+  color: var(--color-M_03);
+
+  ${(props) => sizes[props.size]}
+  ${(props) =>
+    props.rounded &&
+    css`
+      border-radius: var(--border-radius--rounded);
+    `};
+  ${(props) =>
+    props.selected &&
+    css`
+      background-color: var(--color-M_01);
+      color: var(--color-M_05);
+    `};
+
+  ${(props) =>
+    !props.selected &&
+    css`
+      &:hover {
+        background-color: var(--color-M_05);
+        color: var(--color-M_01);
+        border: 1px solid var(--color-M_05);
+      }
+    `}
+
+  &:active {
+    background-color: var(--color-M_01);
+    color: var(--color-M_05);
   }
 `;
 
