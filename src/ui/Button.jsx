@@ -49,7 +49,7 @@ const Button = styled.button`
   ${(props) =>
     props.rounded &&
     css`
-      border-radius: var(--border-radius--rounded);
+      border-radius: var(--border-radius-rounded);
     `};
 
   ${(props) =>

@@ -20,18 +20,20 @@ function InterestBox() {
   return (
     <WrapBox>
       <Button
-        style={{ padding: '1.2rem 2.4rem' }}
+        style={{ padding: '1.2rem 2.4rem', fontSize: '1.8rem' }}
         selected={selectedInterests.length === allInterests.length}
         onClick={handleSelectAllInterests}
+        rounded
       >
         전체 선택
       </Button>
       {allInterests.map(({ value, label }) => (
         <Button
-          style={{ padding: '1.2rem 2.4rem' }}
+          style={{ padding: '1.2rem 2.4rem', fontSize: '1.8rem' }}
           key={value}
           selected={selectedInterests.includes(value)}
           onClick={() => handleSelectInterest(value)}
+          rounded
         >
           {label}
         </Button>
