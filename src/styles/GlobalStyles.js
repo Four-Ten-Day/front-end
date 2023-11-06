@@ -4,15 +4,20 @@ const GlobalStyles = createGlobalStyle`
 :root{
   /* Main color */
   --color-M_01: #020202;
-  --color-M_02: #757575
-  --color-M_03: #959595
-  --color-M_04: #D2D2D2
+  --color-M_02: #757575;
+  --color-M_03: #959595;
+  --color-M_04: #D2D2D2;
+  --color-M_05: #f3f3f3;
+  --color-M_06: #FFFFFF;
   
   /* Secondary color */
-  --color-S_01: #FFC43D
-  --color-S_02: #F72585
-  --color-S_03: #7209B7
-  --color-S_04: #1BCCBA
+  --color-S_01: #FFC43D;
+  --color-S_02: #F72585;
+  --color-S_03: #7209B7;
+  --color-S_04: #1BCCBA;
+
+  --border-radius: 15px;
+  --border-radius-rounded: 50px;
 }
 
 *,
@@ -23,11 +28,17 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
 }
 
+*:disabled {
+  cursor: not-allowed;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  font-family: 'Jua', sans-serif;
+
   min-height: 100vh;
   font-size: 1.6rem;
 }
@@ -42,6 +53,7 @@ select {
 
 button {
   cursor: pointer;
+  background-color: inherit;
 }
 
 *:disabled {
