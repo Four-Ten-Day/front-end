@@ -31,7 +31,6 @@ export const Content = styled.div`
   justify-content: center;
 
   margin-top: 6.4rem;
-  margin-bottom: 2.8rem;
 `;
 
 export const ButtonFrame = styled.div`

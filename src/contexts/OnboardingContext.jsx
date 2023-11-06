@@ -9,34 +9,42 @@ const OnboardingContext = createContext();
 
 const interestsConfig = [
   {
+    emoji: '👩',
     value: 'a',
     label: '이색적인',
   },
   {
+    emoji: '👩',
     value: 'b',
     label: '활동',
   },
   {
+    emoji: '👩',
     value: 'c',
     label: '매우매우 정적인',
   },
   {
+    emoji: '👩',
     value: 'd',
     label: '긴글자를 ',
   },
   {
+    emoji: '👩',
     value: 'e',
     label: '짧',
   },
   {
+    emoji: '👩',
     value: 'f',
     label: '이런것두',
   },
   {
+    emoji: '👩',
     value: 'g',
-    label: '엄청나게 긴 글자가 있으면 레이아웃이 흐르도록',
+    label: '엄청나게',
   },
   {
+    emoji: '👩',
     value: 'h',
     label: '짧',
   },

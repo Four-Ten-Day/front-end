@@ -3,8 +3,8 @@ import {
   SELECT_INTERESTS,
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
-import Button from '../../../../ui/Button';
-import WrapBox from '../../../../ui/WrapBox';
+import { ButtonIcon } from '../../../../ui/ButtonIcon';
+import * as S from './styles';
 
 function InterestBox() {
   const { dispatch, selectedInterests, allInterests } = useOnboarding();
@@ -18,27 +18,28 @@ function InterestBox() {
   }
 
   return (
-    <WrapBox>
-      <Button
-        style={{ padding: '1.2rem 2.4rem', fontSize: '1.8rem' }}
+    <S.Box>
+      <ButtonIcon
         selected={selectedInterests.length === allInterests.length}
         onClick={handleSelectAllInterests}
-        rounded
+        size="small"
       >
-        전체 선택
-      </Button>
-      {allInterests.map(({ value, label }) => (
-        <Button
+        <span>👩‍🦯</span>
+        <span>전체 선택</span>
+      </ButtonIcon>
+      {allInterests.map(({ value, label, emoji }) => (
+        <ButtonIcon
           style={{ padding: '1.2rem 2.4rem', fontSize: '1.8rem' }}
           key={value}
           selected={selectedInterests.includes(value)}
           onClick={() => handleSelectInterest(value)}
-          rounded
+          size="small"
         >
-          {label}
-        </Button>
+          <span>{emoji}</span>
+          <span>{label}</span>
+        </ButtonIcon>
       ))}
-    </WrapBox>
+    </S.Box>
   );
 }
 export default InterestBox;

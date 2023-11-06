@@ -13,7 +13,11 @@ function AloneButton() {
   }
 
   return (
-    <ButtonIcon selected={isWithOther === false} onClick={handleClick}>
+    <ButtonIcon
+      selected={isWithOther === false}
+      onClick={handleClick}
+      size="large"
+    >
       <AloneSvg />
       <span style={{ fontSize: '1.8rem', whiteSpace: 'nowrap' }}>
         혼자 놀거에요

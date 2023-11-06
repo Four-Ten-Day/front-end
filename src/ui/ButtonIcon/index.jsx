@@ -1,10 +1,35 @@
-import styled from 'styled-components';
-import Button from '../Button';
+import styled, { css } from 'styled-components';
 
-export const ButtonIcon = styled(Button)`
+const sizes = {
+  small: css`
+    gap: 0.8rem;
+
+    width: 16.8rem;
+    height: 7.2rem;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+  `,
+  large: css`
+    gap: 3.2rem;
+    padding: 3.2rem 3.8rem;
+  `,
+};
+
+export const ButtonIcon = styled.button`
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  align-items: center;
 
-  padding: 3.2rem 3.8rem;
+  border: 1px solid var(--color-M_04);
+  border-radius: var(--border-radius);
+  color: var(--color-M_03);
+
+  ${(props) => sizes[props.size]}
+
+  ${(props) =>
+    props.selected &&
+    css`
+      background-color: var(--color-M_01);
+      color: var(--color-M_05);
+    `};
 `;

@@ -13,7 +13,11 @@ function TogetherButton() {
   }
 
   return (
-    <ButtonIcon selected={isWithOther === true} onClick={handleClick}>
+    <ButtonIcon
+      selected={isWithOther === true}
+      onClick={handleClick}
+      size="large"
+    >
       <TogetherSvg />
       <span style={{ fontSize: '1.8rem', whiteSpace: 'nowrap' }}>
         같이 놀거에요
