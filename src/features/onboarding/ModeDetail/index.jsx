@@ -12,7 +12,9 @@ function ModeDetail() {
     <>
       <ProgressiveForm currentStep={1}>
         <ProgressiveForm.Elipse />
-        <ProgressiveForm.Title title="오늘은 혼자 놀기? 같이 놀기?" />
+        <ProgressiveForm.Title>
+          오늘은 혼자 놀기? 같이 놀기?
+        </ProgressiveForm.Title>
         <ProgressiveForm.Content>
           <ButtonGroup>
             <AloneButton />

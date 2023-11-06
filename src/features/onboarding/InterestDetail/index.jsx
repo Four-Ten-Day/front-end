@@ -9,7 +9,9 @@ function InterestDetail() {
     <>
       <ProgressiveForm currentStep={2} totalSteps={totalQuestions}>
         <ProgressiveForm.Elipse />
-        <ProgressiveForm.Title title="어떤 기분을 느끼고 싶나요?" />
+        <ProgressiveForm.Title>
+          어떤 기분을 느끼고 싶나요?
+        </ProgressiveForm.Title>
         <ProgressiveForm.Content>
           <InterestBox />
         </ProgressiveForm.Content>

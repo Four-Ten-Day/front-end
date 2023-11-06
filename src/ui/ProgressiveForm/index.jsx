@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import * as S from './styles';
 import { Link } from 'react-router-dom';
@@ -29,8 +29,8 @@ function Elipse() {
   );
 }
 
-function Title({ title }) {
-  return <S.Title as="h1">{title}</S.Title>;
+function Title({ children }) {
+  return <S.Title as="h1">{children}</S.Title>;
 }
 
 function Content({ children }) {
