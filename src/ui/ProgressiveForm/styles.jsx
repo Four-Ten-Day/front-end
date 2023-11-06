@@ -30,17 +30,25 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
 
-  margin-top: 64px;
+  margin-top: 6.4rem;
+  margin-bottom: 2.8rem;
+`;
+
+export const ButtonFrame = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  padding: 2rem 2.8rem;
 `;
 
 export const NextButton = styled(Button).attrs({
   size: 'large',
 })`
-  position: absolute;
-  bottom: 5.3rem;
-  left: 50%;
-  transform: translateX(-50%);
-
   ${(props) =>
     props.disabled &&
     css`

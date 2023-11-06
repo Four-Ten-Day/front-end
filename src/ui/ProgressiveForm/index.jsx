@@ -39,16 +39,18 @@ function Content({ children }) {
 
 function NextButton({ to, children, disabled, selected }) {
   return createPortal(
-    <S.NextButton
-      as={Link}
-      to={to}
-      disabled={disabled}
-      variations="secondary"
-      selected={selected}
-      onClick={disabled ? (e) => e.preventDefault() : () => {}}
-    >
-      {children}
-    </S.NextButton>,
+    <S.ButtonFrame>
+      <S.NextButton
+        as={Link}
+        to={to}
+        disabled={disabled}
+        variations="secondary"
+        selected={selected}
+        onClick={disabled ? (e) => e.preventDefault() : () => {}}
+      >
+        {children}
+      </S.NextButton>
+    </S.ButtonFrame>,
     document.body
   );
 }
