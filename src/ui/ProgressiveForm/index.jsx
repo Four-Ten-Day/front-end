@@ -37,13 +37,14 @@ function Content({ children }) {
   return <S.Content>{children}</S.Content>;
 }
 
-function NextButton({ to, children, disabled }) {
+function NextButton({ to, children, disabled, selected }) {
   return createPortal(
     <S.NextButton
       as={Link}
       to={to}
-      size="large"
       disabled={disabled}
+      variations="secondary"
+      selected={selected}
       onClick={disabled ? (e) => e.preventDefault() : () => {}}
     >
       {children}

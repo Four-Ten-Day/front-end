@@ -18,6 +18,7 @@ function InterestDetail() {
         <ProgressiveForm.NextButton
           to="/travel-distance"
           disabled={selectedInterests.length === 0}
+          selected={selectedInterests.length !== 0}
         >
           선택 완료
         </ProgressiveForm.NextButton>

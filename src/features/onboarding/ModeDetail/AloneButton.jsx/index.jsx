@@ -2,7 +2,8 @@ import {
   CLICK_ALONE,
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
-import * as S from './styles';
+import { ReactComponent as AloneSvg } from '../../../../../public/alone-v2.svg';
+import { ButtonIcon } from '../../../../ui/ButtonIcon';
 
 function AloneButton() {
   const { isWithOther, dispatch } = useOnboarding();
@@ -12,7 +13,12 @@ function AloneButton() {
   }
 
   return (
-    <S.AloneButton selected={isWithOther === false} onClick={handleClick} />
+    <ButtonIcon selected={isWithOther === false} onClick={handleClick}>
+      <AloneSvg />
+      <span style={{ fontSize: '1.8rem', whiteSpace: 'nowrap' }}>
+        혼자 놀거에요
+      </span>
+    </ButtonIcon>
   );
 }
 export default AloneButton;

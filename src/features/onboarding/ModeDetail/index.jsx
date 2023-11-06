@@ -24,6 +24,7 @@ function ModeDetail() {
         <ProgressiveForm.NextButton
           to="/interest"
           disabled={isWithOther === null}
+          selected={isWithOther !== null}
         >
           선택 완료
         </ProgressiveForm.NextButton>

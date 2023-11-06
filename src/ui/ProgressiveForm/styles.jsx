@@ -33,7 +33,9 @@ export const Content = styled.div`
   margin-top: 64px;
 `;
 
-export const NextButton = styled(Button)`
+export const NextButton = styled(Button).attrs({
+  size: 'large',
+})`
   position: absolute;
   bottom: 5.3rem;
   left: 50%;

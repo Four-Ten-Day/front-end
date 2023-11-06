@@ -4,7 +4,6 @@ export const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 6.4rem;
 
   ${(props) =>
     props.gap &&

@@ -20,6 +20,7 @@ function InterestBox() {
   return (
     <WrapBox>
       <Button
+        style={{ padding: '1.2rem 2.4rem' }}
         selected={selectedInterests.length === allInterests.length}
         onClick={handleSelectAllInterests}
       >
@@ -27,6 +28,7 @@ function InterestBox() {
       </Button>
       {allInterests.map(({ value, label }) => (
         <Button
+          style={{ padding: '1.2rem 2.4rem' }}
           key={value}
           selected={selectedInterests.includes(value)}
           onClick={() => handleSelectInterest(value)}

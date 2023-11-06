@@ -2,11 +2,14 @@ import styled, { css } from 'styled-components';
 
 import Button from '../../../ui/Button';
 
-export const Spacer = styled.div`
+export const Row = styled.div`
+  display: flex;
+  justify-content: center;
+
   ${(props) =>
-    props.height &&
+    props.margintop &&
     css`
-      height: ${props.height};
+      margin-top: ${props.margintop};
     `}
 `;
 
@@ -14,7 +17,11 @@ export const Span = styled.span`
   font-size: 2.8rem;
 `;
 
-export const NextButton = styled(Button).attrs({ size: 'medium' })`
+export const NextButton = styled(Button).attrs({
+  size: 'medium',
+  variations: 'ternary',
+})`
   margin: 0 auto;
   margin-top: 4.8rem;
+  font-size: 2.4rem;
 `;

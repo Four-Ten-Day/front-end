@@ -1,18 +1,18 @@
-import Row from '../../../ui/Row';
+import ProgressiveForm from '../../../ui/ProgressiveForm';
 
 function TravelDistanceDetail() {
   return (
     <>
-      <Row>
-        <span>1 / 3</span>
-      </Row>
-      <Row>
-        <span>
-          지금 내 위치에서
-          <br /> 이동 가능한 거리를 알려주세요
-        </span>
-      </Row>
-      <input type="range" min="10" max="60" step="10" />
+      <ProgressiveForm currentStep={3}>
+        <ProgressiveForm.Elipse />
+        <ProgressiveForm.Title>
+          지금 내 위치에서 이동할 수 있는 거리를 알려주세요
+        </ProgressiveForm.Title>
+        <ProgressiveForm.Content />
+        <ProgressiveForm.NextButton to="/travel-distance">
+          선택 완료
+        </ProgressiveForm.NextButton>
+      </ProgressiveForm>
     </>
   );
 }
