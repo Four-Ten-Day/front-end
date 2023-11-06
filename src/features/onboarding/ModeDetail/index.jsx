@@ -1,39 +1,31 @@
-import { useNavigate } from 'react-router-dom';
-import {
-  ANSWER_WITH_OTEHR_PEOPLE,
-  useOnboarding,
-} from '../../../contexts/OnboardingContext';
-import Button from '../../../ui/Button';
-import Row from '../../../ui/Row';
 import ProgressiveForm from '../../../ui/ProgressiveForm';
+import { ButtonGroup } from '../../../ui/ButtonGroup/index.jsx';
+
+import AloneButton from './AloneButton.jsx';
+import TogetherButton from './TogetherButton.jsx';
+import { useOnboarding } from '../../../contexts/OnboardingContext.jsx';
 
 function ModeDetail() {
-  const { dispatch } = useOnboarding();
-  const navigate = useNavigate();
+  const { isWithOther } = useOnboarding();
 
-  function handleChoiceMode(payload) {
-    dispatch({ type: ANSWER_WITH_OTEHR_PEOPLE, payload });
-    navigate('/interest');
-  }
-
-  // TODO: Header totalSteps 매직넘버 제거
   return (
     <>
-      <ProgressiveForm>
-        <ProgressiveForm.Header totalSteps="3" />
-        <ProgressiveForm.Title title="오늘 뭐하고 놀지?" />
+      <ProgressiveForm currentStep={1}>
+        <ProgressiveForm.Elipse />
+        <ProgressiveForm.Title title="오늘은 혼자 놀기? 같이 놀기?" />
         <ProgressiveForm.Content>
-          <Row>
-            <Button onClick={() => handleChoiceMode(false)}>
-              혼자 놀거에요
-            </Button>
-            <Button onClick={() => handleChoiceMode(true)}>
-              같이 놀거에요
-            </Button>
-          </Row>
+          <ButtonGroup>
+            <AloneButton />
+            <TogetherButton />
+          </ButtonGroup>
         </ProgressiveForm.Content>
+        <ProgressiveForm.NextButton
+          to="/interest"
+          disabled={isWithOther === null}
+        >
+          선택 완료
+        </ProgressiveForm.NextButton>
       </ProgressiveForm>
-      );
     </>
   );
 }
