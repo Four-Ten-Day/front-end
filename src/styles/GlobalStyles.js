@@ -43,6 +43,13 @@ body {
   font-size: 1.6rem;
 }
 
+h1,
+h2,
+h3,
+h4{
+  font-weight: 400;
+}
+
 input,
 button,
 textarea,

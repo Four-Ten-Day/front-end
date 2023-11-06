@@ -21,9 +21,9 @@ const variations = {
   `,
 
   secondary: css`
-    background-color: var(--color-M_05);
+    background-color: var(--color-M_04);
     color: var(--color-M_01);
-    border: 1px solid var(--color-M_05);
+    border: 1px solid var(--color-M_04);
   `,
 
   ternary: css`

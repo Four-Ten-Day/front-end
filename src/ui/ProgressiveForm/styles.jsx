@@ -48,6 +48,7 @@ export const ButtonFrame = styled.div`
 `;
 
 export const NextButton = styled(Button).attrs({
+  variations: 'secondary',
   size: 'large',
 })`
   ${(props) =>
@@ -55,4 +56,6 @@ export const NextButton = styled(Button).attrs({
     css`
       cursor: not-allowed;
     `}
+
+  color: var(--color-M_06)
 `;

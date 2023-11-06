@@ -44,7 +44,6 @@ function NextButton({ to, children, disabled, selected }) {
         as={Link}
         to={to}
         disabled={disabled}
-        variations="secondary"
         selected={selected}
         onClick={disabled ? (e) => e.preventDefault() : () => {}}
       >
