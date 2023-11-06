@@ -1,14 +1,15 @@
 import { createContext, useContext, useReducer } from 'react';
 
 export const ANSWER_WITH_OTEHR_PEOPLE = 'answerWithOtherPeople';
+export const ANSWER_INTERESTS = 'answerInterests';
 
 const OnboardingContext = createContext();
 
 const initialState = {
   withOtherPeople: false,
-  interests: [],
+  selectedInterests: [],
   transportation: null,
-  travelTime: null,
+  travelDistance: null,
 };
 
 function reducer(state, action) {
@@ -18,23 +19,39 @@ function reducer(state, action) {
         ...state,
         withOtherPeople: action.payload,
       };
+    case ANSWER_INTERESTS:
+      let newInterests;
 
+      if (state.selectedInterests.includes(action.payload)) {
+        newInterests = state.selectedInterests.filter(
+          (interest) => interest !== action.payload
+        );
+      } else {
+        newInterests = [...state.selectedInterests, action.payload];
+      }
+
+      return {
+        ...state,
+        selectedInterests: newInterests,
+      };
     default:
-      throw new Error('unknown action');
+      throw new Error('부적절한 action.type 사용');
   }
 }
 
 function OnboardingProvider({ children }) {
-  const [{ withOtherPeople, interests, transportation, travelTime }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { withOtherPeople, selectedInterests, transportation, travelDistance },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   return (
     <OnboardingContext.Provider
       value={{
         withOtherPeople,
-        interests,
+        selectedInterests,
         transportation,
-        travelTime,
+        travelDistance,
         dispatch,
       }}
     >
