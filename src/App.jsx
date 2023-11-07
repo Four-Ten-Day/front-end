@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Interest from './pages/Interest';
 import TravelDistance from './pages/TravelDistance';
 import GlobalStyles from './styles/GlobalStyles';
+import Result from './pages/Result';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/travel-distance',
         element: <TravelDistance />,
+      },
+      {
+        path: 'result',
+        element: <Result />,
       },
     ],
   },
