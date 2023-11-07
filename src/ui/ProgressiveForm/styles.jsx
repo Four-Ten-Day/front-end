@@ -44,6 +44,7 @@ export const ButtonFrame = styled.div`
   width: 100%;
   padding: 2rem 2.8rem;
   background-color: var(--color-M_06);
+  box-shadow: 0px -1px 15px 0px rgba(0, 0, 0, 0.08);
 `;
 
 export const NextButton = styled(Button).attrs({
