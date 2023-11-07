@@ -18,6 +18,8 @@ const sizes = {
 const variations = {
   primary: css`
     background-color: var(--color-M_06);
+    border: 1px solid var(--color-M_01);
+    color: var(--color-M_03);
   `,
 
   secondary: css`
@@ -40,9 +42,7 @@ const Button = styled.button`
   gap: 1rem;
 
   padding: 1.9rem 2.4rem;
-  border: 1px solid var(--color-M_04);
   border-radius: var(--border-radius);
-  color: var(--color-M_03);
   font-size: 2.4rem;
 
   ${(props) => sizes[props.size]}
