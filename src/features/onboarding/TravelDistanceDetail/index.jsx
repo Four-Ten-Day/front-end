@@ -12,7 +12,7 @@ function TravelDistanceDetail() {
         <ProgressiveForm.Content>
           <Map />
         </ProgressiveForm.Content>
-        <ProgressiveForm.NextButton to="/travel-distance">
+        <ProgressiveForm.NextButton to="/result">
           선택 완료
         </ProgressiveForm.NextButton>
       </ProgressiveForm>
