@@ -1,15 +1,26 @@
 import { useEffect } from 'react';
-
 const { kakao } = window;
 
-export function useMap(ref, isLoading, error, position) {
+export function useMap({ ref, isLoading, error, position, distance }) {
   useEffect(() => {
-    if (isLoading || error || !ref.current) return;
-    if (!kakao.maps) return;
+    if (isLoading || error) return;
+    if (!kakao?.maps) return;
+
+    let level;
+
+    if (distance <= 250) {
+      level = 5;
+    } else if (distance <= 500) {
+      level = 6;
+    } else if (distance <= 1000) {
+      level = 7;
+    } else {
+      level = 8;
+    }
 
     const options = {
       center: new kakao.maps.LatLng(position?.lat, position?.lng),
-      level: 3,
+      level: level,
     };
 
     const map = new kakao.maps.Map(ref.current, options);
@@ -17,15 +28,14 @@ export function useMap(ref, isLoading, error, position) {
     const circle = new kakao.maps.Circle({
       map: map,
       center: new kakao.maps.LatLng(position?.lat, position?.lng),
-      radius: 100,
-      strokeWeight: 2,
-      strokeColor: '#FF00FF',
+      radius: distance,
+      strokeWeight: 1,
       strokeOpacity: 0.8,
-      strokeStyle: 'dashed',
-      fillColor: '#00EEEE',
       fillOpacity: 0.5,
     });
 
+    console.log(distance);
+
     circle.setMap(map);
-  }, [ref, isLoading, error, position]);
+  }, [ref, isLoading, error, position, distance]);
 }

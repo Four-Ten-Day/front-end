@@ -23,6 +23,8 @@ export const Title = styled(Heading)`
   display: flex;
   justify-content: center;
 
+  text-align: center;
+  white-space: nowrap;
   margin-top: 7.2rem;
 `;
 

@@ -2,16 +2,17 @@
 import { useRef } from 'react';
 import { useGeolocation } from '../../../../hooks/useGeolocation';
 import { useMap } from './useMap';
+import * as S from './styles';
+import useWindowSize from '../../../../hooks/useWindowSize';
 
-function Map() {
+function Map({ distance }) {
   const mapContainerRef = useRef(null);
   const { isLoading, position, error } = useGeolocation();
+  const windowSize = useWindowSize();
 
-  useMap(mapContainerRef, isLoading, error, position); // ref를 useMap 훅에 전달합니다.
+  useMap({ ref: mapContainerRef, isLoading, error, position, distance });
 
-  return (
-    <div ref={mapContainerRef} style={{ width: '500px', height: '500px' }} />
-  );
+  return <S.MapContainer ref={mapContainerRef} width={windowSize.width} />;
 }
 
 export default Map;
