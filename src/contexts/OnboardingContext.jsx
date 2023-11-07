@@ -1,5 +1,13 @@
 import { createContext, useContext, useReducer } from 'react';
 
+import { ReactComponent as ActiveSvg } from '../../public/interest-active.svg';
+import { ReactComponent as ChallengingSvg } from '../../public/interest-challenging.svg';
+import { ReactComponent as ContemplativeSvg } from '../../public/interest-contemplative.svg';
+import { ReactComponent as RetroSvg } from '../../public/interest-retro.svg';
+import { ReactComponent as RomanticSvg } from '../../public/interest-romantic.svg';
+import { ReactComponent as TrendySvg } from '../../public/interest-trendy.svg';
+import { ReactComponent as ExoticSvg } from '../../public/interest-exotic.svg';
+
 export const CLICK_ALONE = 'clickAlone';
 export const CLICK_TOGETHER = 'clickTogether';
 export const SELECT_INTERESTS = 'answerInterests';
@@ -9,44 +17,39 @@ const OnboardingContext = createContext();
 
 const interestsConfig = [
   {
-    emoji: '👩',
+    emoji: <ActiveSvg />,
     value: 'a',
-    label: '이색적인',
+    label: '활동적인',
   },
   {
-    emoji: '👩',
+    emoji: <RomanticSvg />,
     value: 'b',
-    label: '활동',
+    label: '로맨틱한',
   },
   {
-    emoji: '👩',
+    emoji: <ExoticSvg />,
     value: 'c',
-    label: '매우매우 정적인',
+    label: '이국적인',
   },
   {
-    emoji: '👩',
+    emoji: <TrendySvg />,
     value: 'd',
-    label: '긴글자를 ',
+    label: '트렌디한 ',
   },
   {
-    emoji: '👩',
+    emoji: <ContemplativeSvg />,
     value: 'e',
-    label: '짧',
+    label: '사색적인',
   },
   {
-    emoji: '👩',
+    emoji: <RetroSvg />,
     value: 'f',
-    label: '이런것두',
+    label: '복고풍의',
   },
   {
-    emoji: '👩',
+    emoji: <ChallengingSvg />,
     value: 'g',
-    label: '엄청나게',
-  },
-  {
-    emoji: '👩',
-    value: 'h',
-    label: '짧',
+    label: '도전적인',
   },
 ];
 

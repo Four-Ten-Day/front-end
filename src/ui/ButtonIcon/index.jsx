@@ -5,7 +5,7 @@ const sizes = {
     gap: 0.8rem;
 
     width: 16.8rem;
-    height: 7.2rem;
+
     padding: 1.2rem 2.4rem;
     font-size: 1.6rem;
   `,

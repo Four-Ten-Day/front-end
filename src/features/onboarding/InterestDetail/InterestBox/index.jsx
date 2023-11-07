@@ -6,6 +6,8 @@ import {
 import { ButtonIcon } from '../../../../ui/ButtonIcon';
 import * as S from './styles';
 
+import { ReactComponent as AllSvg } from '../../../../../public/interest-all.svg';
+
 function InterestBox() {
   const { dispatch, selectedInterests, allInterests } = useOnboarding();
 
@@ -24,7 +26,7 @@ function InterestBox() {
         onClick={handleSelectAllInterests}
         size="small"
       >
-        <span>👩‍🦯</span>
+        <AllSvg />
         <span>전체 선택</span>
       </ButtonIcon>
       {allInterests.map(({ value, label, emoji }) => (
@@ -35,7 +37,7 @@ function InterestBox() {
           onClick={() => handleSelectInterest(value)}
           size="small"
         >
-          <span>{emoji}</span>
+          {emoji}
           <span>{label}</span>
         </ButtonIcon>
       ))}
