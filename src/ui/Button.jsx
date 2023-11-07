@@ -29,6 +29,7 @@ const variations = {
   ternary: css`
     background-color: var(--color-M_01);
     color: var(--color-M_06);
+    border: 1px solid var(--color-M_01);
   `,
 };
 
