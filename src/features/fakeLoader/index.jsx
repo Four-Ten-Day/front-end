@@ -40,7 +40,10 @@ function FakeLoader({ loadingTime }) {
   return createPortal(
     <S.Wrapper>
       {icons[imageIndex]}
-      <Heading as="h1">
+      <Heading
+        as="h1"
+        style={{ textAlign: 'left', width: '14.4rem', whiteSpace: 'nowrap' }}
+      >
         랜덤 추천 중
         {[...Array.from({ length: imageIndex })]
           .map((_, tempIndex) => {
