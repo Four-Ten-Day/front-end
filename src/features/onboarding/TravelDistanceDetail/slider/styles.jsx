@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   position: relative;
 
   width: 100%;
-  margin-top: 36px;
+  padding-top: 1.6rem;
 `;
 
 export const Spacer = styled.div`

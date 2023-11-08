@@ -60,7 +60,14 @@ select {
 
 button {
   cursor: pointer;
-  background-color: inherit;
+  background: inherit ; 
+  border:none; 
+  box-shadow:none; 
+  border-radius:0; 
+  padding:0; 
+  overflow:visible; 
+  
+
 }
 
 *:disabled {

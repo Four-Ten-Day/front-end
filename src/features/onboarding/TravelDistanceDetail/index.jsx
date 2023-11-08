@@ -2,8 +2,8 @@ import { useState } from 'react';
 import ProgressiveForm from '../../../ui/ProgressiveForm';
 import Row from '../../../ui/Row';
 import Map from './Map';
-import DistanceInfo from './info';
 import DistanceSlider from './slider';
+import * as S from './styles';
 
 const distanceConfig = [
   {
@@ -47,7 +47,9 @@ function TravelDistanceDetail() {
         <ProgressiveForm.Content>
           <Row type="vertical">
             <Map distance={distance} />
-            <DistanceInfo distanceLabel={label} />
+            <S.Div>
+              <S.ColorSpan>{label}</S.ColorSpan> 이동 가능해요
+            </S.Div>
             <DistanceSlider
               distanceConfig={distanceConfig}
               distanceIndex={distanceIndex}

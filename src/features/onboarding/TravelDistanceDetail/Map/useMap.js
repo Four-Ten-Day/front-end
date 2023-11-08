@@ -30,11 +30,11 @@ export function useMap({ ref, isLoading, error, position, distance }) {
       center: new kakao.maps.LatLng(position?.lat, position?.lng),
       radius: distance,
       strokeWeight: 1,
-      strokeOpacity: 0.8,
-      fillOpacity: 0.5,
+      fillOpacity: 0.25,
+      fillColor: '#1BCCBA',
+      strokeColor: '#1BCCBA',
+      strokeOpacity: 1,
     });
-
-    console.log(distance);
 
     circle.setMap(map);
   }, [ref, isLoading, error, position, distance]);

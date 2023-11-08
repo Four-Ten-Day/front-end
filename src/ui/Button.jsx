@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 const sizes = {
   small: css`
+    font-size: 1.6rem;
     width: 15.4rem;
     height: 5.6rem;
   `,
@@ -31,7 +32,12 @@ const variations = {
   ternary: css`
     background-color: var(--color-M_01);
     color: var(--color-M_06);
+    border: none;
+  `,
+
+  quaternary: css`
     border: 1px solid var(--color-M_01);
+    background: var(--color-M_06);
   `,
 };
 
@@ -44,6 +50,8 @@ const Button = styled.button`
   padding: 1.9rem 2.4rem;
   border-radius: var(--border-radius);
   font-size: 2.4rem;
+  border: none;
+  white-space: nowrap;
 
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.variations]}
@@ -58,6 +66,7 @@ const Button = styled.button`
     css`
       background-color: var(--color-M_01);
       color: var(--color-M_05);
+      border: none;
     `};
 `;
 

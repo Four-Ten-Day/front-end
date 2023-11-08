@@ -58,6 +58,4 @@ export const NextButton = styled(Button).attrs({
     css`
       cursor: not-allowed;
     `}
-
-  color: var(--color-M_06)
 `;
