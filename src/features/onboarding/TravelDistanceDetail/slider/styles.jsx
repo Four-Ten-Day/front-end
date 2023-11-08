@@ -68,7 +68,7 @@ export const Label = styled.div`
   position: absolute;
   top: 4.4rem;
   left: ${(props) => props.left}px;
-  transform: translateX(-50%);
+  transform: translateX(-25%);
   text-align: center;
   font-size: 1.2rem;
   color: var(--color-M_03);

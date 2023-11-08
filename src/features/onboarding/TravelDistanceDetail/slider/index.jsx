@@ -25,16 +25,17 @@ const Slider = ({ distanceConfig, onDistanceChange }) => {
 
     setValue(closest * 1000);
     onDistanceChange(closest);
-  }, [value, distanceConfig]);
+  }, [value, distanceConfig, onDistanceChange]);
 
   return (
     <S.SliderContainer>
       {distanceConfig.map((option, index) => {
         const position = calculatePosition(index);
+
         return (
           <React.Fragment key={option.id}>
             <S.ChoiceCircle left={position} />
-            <S.Label left={index ? position : position + 20}>
+            <S.Label left={position}>
               {value / 1000 === index ? option.label : ''}
             </S.Label>
           </React.Fragment>
