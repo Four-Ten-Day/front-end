@@ -5,7 +5,6 @@ const sizes = {
     gap: 0.8rem;
 
     width: 16.8rem;
-
     padding: 1.2rem 2.4rem;
     font-size: 1.6rem;
   `,
@@ -29,7 +28,7 @@ export const ButtonIcon = styled.button`
   ${(props) =>
     props.selected &&
     css`
-      border: var(--color-M_01);
+      border: 1px solid var(--color-M_01);
       background-color: var(--color-M_01);
       color: var(--color-M_05);
     `};
