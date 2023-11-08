@@ -28,7 +28,7 @@ function ResultDetail() {
         </S.ButtonRow>
       </Card>
 
-      {/* <FakeLoader loadingTime={3000} /> */}
+      <FakeLoader loadingTime={3000} />
       <ResultBackGround />
     </>
   );

@@ -11,4 +11,5 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: var(--color-M_06);
+  z-index: 10;
 `;
