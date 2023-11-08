@@ -22,6 +22,9 @@ export const ResultTextBox = styled.div`
 export const Span = styled.span`
   color: var(--color-M_02);
   font-size: 1.6rem;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
 `;
 
 export const ButtonRow = styled(ButtonGroup)`
