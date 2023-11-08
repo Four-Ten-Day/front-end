@@ -25,7 +25,7 @@ const variations = {
 
   secondary: css`
     background-color: var(--color-M_04);
-    color: var(--color-M_01);
+    color: var(--color-M_06);
     border: 1px solid var(--color-M_04);
   `,
 
@@ -66,7 +66,7 @@ const Button = styled.button`
     css`
       background-color: var(--color-M_01);
       color: var(--color-M_05);
-      border: none;
+      border: var(--color-M_01);
     `};
 `;
 

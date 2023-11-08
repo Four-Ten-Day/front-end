@@ -29,7 +29,7 @@ export const ButtonIcon = styled.button`
   ${(props) =>
     props.selected &&
     css`
-      border: none;
+      border: var(--color-M_01);
       background-color: var(--color-M_01);
       color: var(--color-M_05);
     `};

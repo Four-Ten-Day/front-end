@@ -17,7 +17,8 @@ const OnboardingContext = createContext();
 
 const interestsConfig = [
   {
-    emoji: <ActiveSvg />,
+    // emoji: <ActiveSvg />,
+    emoji: <RomanticSvg />,
     value: 'a',
     label: '활동적인',
   },

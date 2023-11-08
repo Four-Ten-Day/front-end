@@ -22,6 +22,7 @@ function InterestBox() {
   return (
     <S.Box>
       <ButtonIcon
+        style={{ padding: '1.2rem 2.4rem', fontSize: '1.8rem' }}
         selected={selectedInterests.length === allInterests.length}
         onClick={handleSelectAllInterests}
         size="small"
