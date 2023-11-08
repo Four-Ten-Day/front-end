@@ -5,6 +5,7 @@ export const MapContainer = styled.div`
   margin-top: -44px;
   margin-left: -2rem;
   margin-right: -2rem;
+  overflow-x: hidden;
 
   ${(props) =>
     props.width &&

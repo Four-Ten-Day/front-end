@@ -2,8 +2,10 @@ import { useState } from 'react';
 import ProgressiveForm from '../../../ui/ProgressiveForm';
 import Row from '../../../ui/Row';
 import Map from './Map';
-import DistanceSlider from './slider';
+
 import * as S from './styles';
+
+import Slider from './slider';
 
 const distanceConfig = [
   {
@@ -50,9 +52,9 @@ function TravelDistanceDetail() {
             <S.Div>
               <S.ColorSpan>{label}</S.ColorSpan> 이동 가능해요
             </S.Div>
-            <DistanceSlider
+
+            <Slider
               distanceConfig={distanceConfig}
-              distanceIndex={distanceIndex}
               onDistanceChange={handleDistanceChange}
             />
           </Row>
