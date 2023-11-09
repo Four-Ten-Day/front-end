@@ -12,6 +12,8 @@ export const CLICK_ALONE = 'clickAlone';
 export const CLICK_TOGETHER = 'clickTogether';
 export const SELECT_INTERESTS = 'answerInterests';
 export const SELECT_ALL_INTERSTS = 'selectAllInterests';
+export const SELECT_DISTANCE = 'selectDistance';
+export const INIT = 'init';
 
 const OnboardingContext = createContext();
 
@@ -53,12 +55,40 @@ const interestsConfig = [
   },
 ];
 
+const distanceConfig = [
+  {
+    id: 'under 250',
+    distance: 250,
+    label: '250m 이내',
+    zoomLevel: 5,
+  },
+  {
+    id: 'under 500',
+    distance: 500,
+    label: '500m 이내',
+    zoomLevel: 6,
+  },
+  {
+    id: 'under 1000',
+    distance: 1000,
+    label: '1km 이내',
+    zoomLevel: 7,
+  },
+  {
+    id: 'over 1000',
+    distance: 2000,
+    label: '1km 이상',
+    zoomLevel: 8,
+  },
+];
+
 const initialState = {
   isWithOther: null,
   selectedInterests: [],
   transportation: null,
-  travelDistance: null,
   allInterests: interestsConfig,
+  distanceConfigIndex: 0,
+  distanceConfig,
 };
 
 function reducer(state, action) {
@@ -115,6 +145,19 @@ function reducer(state, action) {
       };
     }
 
+    case SELECT_DISTANCE: {
+      return {
+        ...state,
+        distanceConfigIndex: action.payload,
+      };
+    }
+
+    case INIT: {
+      return {
+        ...initialState,
+      };
+    }
+
     default:
       throw new Error('부적절한 action.type 사용');
   }
@@ -126,8 +169,9 @@ function OnboardingProvider({ children }) {
       isWithOther,
       selectedInterests,
       transportation,
-      travelDistance,
+      distanceConfigIndex,
       allInterests,
+      distanceConfig,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -138,7 +182,8 @@ function OnboardingProvider({ children }) {
         isWithOther,
         selectedInterests,
         transportation,
-        travelDistance,
+        distanceConfigIndex,
+        distanceConfig,
         dispatch,
         allInterests,
       }}

@@ -5,12 +5,12 @@ import { useMap } from './useMap';
 import * as S from './styles';
 import useWindowSize from '../../../../hooks/useWindowSize';
 
-function Map({ distance }) {
+function Map() {
   const mapContainerRef = useRef(null);
   const { isLoading, position, error } = useGeolocation();
   const windowSize = useWindowSize();
 
-  useMap({ ref: mapContainerRef, isLoading, error, position, distance });
+  useMap({ ref: mapContainerRef, isLoading, error, position });
 
   return <S.MapContainer ref={mapContainerRef} width={windowSize.width} />;
 }

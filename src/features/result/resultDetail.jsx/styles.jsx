@@ -32,3 +32,11 @@ export const ButtonRow = styled(ButtonGroup)`
 
   margin-top: 3.2rem;
 `;
+
+export const Spacer = styled.div`
+  margin-top: 7.6rem;
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  height: 0.8rem;
+  background-color: var(--color-M_05);
+`;

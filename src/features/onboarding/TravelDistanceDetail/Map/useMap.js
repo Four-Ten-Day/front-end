@@ -1,26 +1,18 @@
 import { useEffect } from 'react';
+import { useOnboarding } from '../../../../contexts/OnboardingContext';
 const { kakao } = window;
 
-export function useMap({ ref, isLoading, error, position, distance }) {
+export function useMap({ ref, isLoading, error, position }) {
+  const { distanceConfig, distanceConfigIndex } = useOnboarding();
+  const { distance, zoomLevel } = distanceConfig[distanceConfigIndex];
+
   useEffect(() => {
     if (isLoading || error) return;
     if (!kakao?.maps) return;
 
-    let level;
-
-    if (distance <= 250) {
-      level = 5;
-    } else if (distance <= 500) {
-      level = 6;
-    } else if (distance <= 1000) {
-      level = 7;
-    } else {
-      level = 8;
-    }
-
     const options = {
       center: new kakao.maps.LatLng(position?.lat, position?.lng),
-      level: level,
+      level: zoomLevel,
     };
 
     const map = new kakao.maps.Map(ref.current, options);
@@ -37,5 +29,5 @@ export function useMap({ ref, isLoading, error, position, distance }) {
     });
 
     circle.setMap(map);
-  }, [ref, isLoading, error, position, distance]);
+  }, [ref, isLoading, error, position, distance, zoomLevel]);
 }

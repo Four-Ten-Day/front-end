@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../../../ui/Button';
 import Heading from '../../../ui/Heading';
 
@@ -5,8 +6,11 @@ import { Card } from '../../../ui/backdropCard';
 import FakeLoader from '../../fakeLoader';
 import ResultBackGround from './resultBackground';
 import * as S from './styles';
+import { INIT, useOnboarding } from '../../../contexts/OnboardingContext';
 
 function ResultDetail() {
+  const { dispatch } = useOnboarding();
+
   return (
     <>
       <Card>
@@ -19,7 +23,13 @@ function ResultDetail() {
         </S.ResultTextBox>
 
         <S.ButtonRow>
-          <Button size="small" variations="quaternary">
+          <Button
+            as={Link}
+            to="/mode"
+            size="small"
+            variations="quaternary"
+            onClick={() => dispatch({ type: INIT })}
+          >
             처음으로 돌아갈래요
           </Button>
           <Button size="small" variations="ternary">
@@ -28,7 +38,9 @@ function ResultDetail() {
         </S.ButtonRow>
       </Card>
 
-      <FakeLoader loadingTime={3000} />
+      <S.Spacer />
+
+      {/* <FakeLoader loadingTime={3000} /> */}
       <ResultBackGround />
     </>
   );

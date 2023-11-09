@@ -6,37 +6,11 @@ import Map from './Map';
 import * as S from './styles';
 
 import Slider from './slider';
-
-const distanceConfig = [
-  {
-    id: 'under 250',
-    distance: 250,
-    label: '250m 이내',
-  },
-  {
-    id: 'under 500',
-    distance: 500,
-    label: '500m 이내',
-  },
-  {
-    id: 'under 1000',
-    distance: 1000,
-    label: '1km 이내',
-  },
-  {
-    id: 'over 1000',
-    distance: 2000,
-    label: '1km 이상',
-  },
-];
+import { useOnboarding } from '../../../contexts/OnboardingContext';
 
 function TravelDistanceDetail() {
-  const [distanceIndex, setDistanceIndex] = useState(0);
-  const { label, distance } = distanceConfig[distanceIndex];
-
-  function handleDistanceChange(idx) {
-    setDistanceIndex(idx);
-  }
+  const { distanceConfig, distanceConfigIndex } = useOnboarding();
+  const { label } = distanceConfig[distanceConfigIndex];
 
   return (
     <>
@@ -48,15 +22,11 @@ function TravelDistanceDetail() {
         </ProgressiveForm.Title>
         <ProgressiveForm.Content>
           <Row type="vertical">
-            <Map distance={distance} />
+            <Map />
             <S.Div>
               <S.ColorSpan>{label}</S.ColorSpan> 이동 가능해요
             </S.Div>
-
-            <Slider
-              distanceConfig={distanceConfig}
-              onDistanceChange={handleDistanceChange}
-            />
+            <Slider />
           </Row>
         </ProgressiveForm.Content>
         <ProgressiveForm.NextButton to="/result" selected>

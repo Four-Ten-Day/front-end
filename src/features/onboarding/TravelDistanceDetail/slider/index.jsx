@@ -1,11 +1,17 @@
 import React, { useState, useCallback } from 'react';
 import useWindowSize from '../../../../hooks/useWindowSize';
 import * as S from './styles';
+import {
+  SELECT_DISTANCE,
+  useOnboarding,
+} from '../../../../contexts/OnboardingContext';
 
-const Slider = ({ distanceConfig, onDistanceChange }) => {
+// TODO: 매직넘버 제거
+const Slider = () => {
+  const { distanceConfig, dispatch } = useOnboarding();
   const [value, setValue] = useState(0);
-  const maxValue = (distanceConfig.length - 1) * 1000;
   const { width: windowWidth } = useWindowSize();
+  const maxValue = (distanceConfig.length - 1) * 1000;
 
   const calculatePosition = (index) => {
     const position = 20 + ((windowWidth - 40 - 32 - 32) / 3) * index;
@@ -24,8 +30,8 @@ const Slider = ({ distanceConfig, onDistanceChange }) => {
     }, 0);
 
     setValue(closest * 1000);
-    onDistanceChange(closest);
-  }, [value, distanceConfig, onDistanceChange]);
+    dispatch({ type: SELECT_DISTANCE, payload: closest });
+  }, [value, distanceConfig, dispatch]);
 
   return (
     <S.SliderContainer>
