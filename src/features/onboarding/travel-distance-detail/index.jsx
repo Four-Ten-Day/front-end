@@ -2,15 +2,10 @@ import ProgressiveForm from '../../../ui/progressive-form';
 import Row from '../../../ui/row';
 import Map from './map';
 
-import * as S from './styles';
-
 import Slider from './slider';
-import { useOnboarding } from '../../../contexts/OnboardingContext';
+import Label from './label';
 
 function TravelDistanceDetail() {
-  const { distanceConfig, distanceConfigIndex } = useOnboarding();
-  const { label } = distanceConfig[distanceConfigIndex];
-
   return (
     <>
       <ProgressiveForm currentStep={3}>
@@ -22,9 +17,7 @@ function TravelDistanceDetail() {
         <ProgressiveForm.Content>
           <Row type="vertical">
             <Map />
-            <S.Div>
-              <S.ColorSpan>{label}</S.ColorSpan> 이동 가능해요
-            </S.Div>
+            <Label />
             <Slider />
           </Row>
         </ProgressiveForm.Content>
