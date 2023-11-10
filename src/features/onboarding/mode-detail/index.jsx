@@ -7,6 +7,7 @@ import { useOnboarding } from '../../../contexts/OnboardingContext.jsx';
 
 function ModeDetail() {
   const { isWithOther } = useOnboarding();
+  const selected = isWithOther !== null;
 
   return (
     <>
@@ -23,8 +24,8 @@ function ModeDetail() {
         </ProgressiveForm.Content>
         <ProgressiveForm.NextButton
           to="/interest"
-          disabled={isWithOther === null}
-          selected={isWithOther !== null}
+          disabled={!selected}
+          selected={selected}
         >
           선택 완료
         </ProgressiveForm.NextButton>
