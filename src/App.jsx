@@ -1,11 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Mode from './pages/Mode';
-import AppLayout from './ui/AppLayout';
-import Home from './pages/Home';
-import Interest from './pages/Interest';
-import TravelDistance from './pages/TravelDistance';
+import Mode from './pages/mode';
+import AppLayout from './ui/app-layout';
+import Home from './pages/home';
+import Interest from './pages/interest';
+import TravelDistance from './pages/travel-distance';
 import GlobalStyles from './styles/GlobalStyles';
-import Result from './pages/Result';
+import Result from './pages/result';
 
 const router = createBrowserRouter([
   {
