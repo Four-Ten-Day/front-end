@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-
-import Button from '../../../ui/button';
+import Button from '../../ui/button';
 
 export const Row = styled.div`
   display: flex;

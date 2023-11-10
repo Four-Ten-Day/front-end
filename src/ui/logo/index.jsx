@@ -1,4 +1,4 @@
-import logoSvg from '../../public/logo.svg';
+import logoSvg from '../../../public/logo.svg';
 
 function Logo() {
   return <img src={logoSvg} alt="Logo" />;

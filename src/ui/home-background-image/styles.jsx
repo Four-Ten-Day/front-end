@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ReactComponent as WallPapers } from '../../../public/wallpapers.svg';
 
-export const BackgroundWallPapers = styled(WallPapers)`
+export const HomeBackgroundImage = styled(WallPapers)`
   position: fixed;
   bottom: 0;
 
