@@ -1,6 +1,5 @@
 import {
   SELECT_ALL_INTERSTS,
-  SELECT_INTERESTS,
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
 import { ButtonIcon } from '../../../../ui/button-icon';
