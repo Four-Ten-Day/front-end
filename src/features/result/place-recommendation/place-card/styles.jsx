@@ -21,6 +21,12 @@ export const Img = styled.img`
   margin-left: -1.2rem;
 `;
 
+export const Row = styled.div`
+  display: flex;
+  align-items: end;
+  gap: 0.8rem;
+`;
+
 export const Title = styled.h2`
   color: var(--color-M_01);
   font-size: 1.6rem;
@@ -30,6 +36,12 @@ export const Title = styled.h2`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const GroupName = styled.span`
+  color: var(--color-M_02);
+  font-size: 1.2rem;
+  font-weight: 400;
 `;
 
 export const Location = styled.div`

@@ -12,14 +12,14 @@ function Home() {
       </S.Row>
       <S.Row margintop="8rem">
         <TextGroup>
-          <S.Span>오늘 뭐하고 놀지 고민되나요?</S.Span>
-          <S.Span>오놀이 랜덤으로 추천해줄게요 :)</S.Span>
+          <S.AnimatedSpan>오늘 뭐하고 놀지 고민되나요?</S.AnimatedSpan>
+          <S.AnimatedSpan>오놀이 랜덤으로 추천해줄게요 :)</S.AnimatedSpan>
         </TextGroup>
       </S.Row>
 
-      <S.NextButton as={Link} to="/mode">
+      <S.AnimatedButton as={Link} to="/mode">
         네 좋아요!
-      </S.NextButton>
+      </S.AnimatedButton>
 
       <HomeBackgroundImage />
     </>
