@@ -6,7 +6,7 @@ export const AnimationContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 39.3rem;
-  height: 100%;
+  height: auto;
   z-index: -1;
   overflow: hidden;
 `;
