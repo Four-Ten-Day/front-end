@@ -17,7 +17,7 @@ const StyledAnimationContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% + 4rem);
   height: 100%;
   z-index: -1;
   overflow: hidden;
