@@ -1,16 +1,18 @@
 import styled from 'styled-components';
+import { ReactComponent as ChevronRightSvg } from '../../../../../public/chevron-right.svg';
 
 export const Card = styled.div`
   border-radius: 15px;
-  background: var(--color-M_06);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
   font-family: 'Nanum Gothic', sans-serif;
-  width: 15rem;
+  width: 100%;
   flex-shrink: 0;
-
   padding-bottom: 1.8rem;
   padding-left: 1.2rem;
-  margin-top: 2rem;
+
+  position: relative;
 `;
 
 export const Img = styled.img`
@@ -50,4 +52,11 @@ export const Distance = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const Chevron = styled(ChevronRightSvg)`
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 `;

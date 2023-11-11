@@ -5,10 +5,10 @@ function PlaceCard({ place }) {
 
   return (
     <S.Card>
-      <S.Img src="/public/alone-v2.svg" />
       <S.Title>{place_name}</S.Title>
       <S.Location>{road_address_name}</S.Location>
       <S.Distance>{distance}m</S.Distance>
+      <S.Chevron />
     </S.Card>
   );
 }

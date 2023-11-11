@@ -1,26 +1,38 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 import * as S from './styles';
 
-export const TOTAL_STEPS = 3;
-
 const CarouselContext = createContext();
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, contentLength, contentWidth }) => {
+  const [currentContent, setCurrentContent] = useState(0);
+
   return (
-    <CarouselContext.Provider value={{}}>{children}</CarouselContext.Provider>
+    <CarouselContext.Provider
+      value={{
+        contentLength,
+        currentContent,
+        setCurrentContent,
+        contentWidth,
+      }}
+    >
+      <S.Carousel>{children}</S.Carousel>
+    </CarouselContext.Provider>
   );
 };
 
-function Title({ children }) {
-  return <S.Title as="h1">{children}</S.Title>;
-}
-
 function Content({ children }) {
-  return <S.Content>{children}</S.Content>;
+  const { currentContent, contentWidth } = useContext(CarouselContext);
+
+  return (
+    <S.Window>
+      <S.Content translatex={-1 * (contentWidth * currentContent)}>
+        {children}
+      </S.Content>
+    </S.Window>
+  );
 }
 
-Carousel.Title = Title;
 Carousel.Content = Content;
 
 export default Carousel;

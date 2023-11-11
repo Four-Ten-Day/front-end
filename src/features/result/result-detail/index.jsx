@@ -7,7 +7,6 @@ import Card from '../../../ui/backdrop-card';
 import ResultBackGround from './result-background';
 import * as S from './styles';
 import { INIT, useOnboarding } from '../../../contexts/OnboardingContext';
-import FakeLoader from '../../../ui/fake-loader';
 
 function ResultDetail({ category }) {
   const { dispatch } = useOnboarding();
@@ -33,7 +32,11 @@ function ResultDetail({ category }) {
           >
             처음으로 돌아갈래요
           </Button>
-          <Button size="small" variations="ternary">
+          <Button
+            size="small"
+            variations="ternary"
+            onClick={() => dispatch({ type: 'trigger' })}
+          >
             다시 추천 받을래요
           </Button>
         </S.ButtonRow>
@@ -41,7 +44,6 @@ function ResultDetail({ category }) {
 
       <S.Spacer />
 
-      {/* <FakeLoader loadingTime={3000} /> */}
       <ResultBackGround />
     </>
   );

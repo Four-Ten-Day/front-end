@@ -194,6 +194,7 @@ const initialState = {
   distanceConfigIndex: 0,
   distanceConfig,
   modeConfig,
+  trigger: -1,
 };
 
 function reducer(state, action) {
@@ -263,6 +264,13 @@ function reducer(state, action) {
       };
     }
 
+    case 'trigger': {
+      return {
+        ...state,
+        trigger: state.trigger * -1,
+      };
+    }
+
     default:
       throw new Error('부적절한 action.type 사용');
   }
@@ -278,6 +286,7 @@ function OnboardingProvider({ children }) {
       allInterests,
       distanceConfig,
       modeConfig,
+      trigger,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -293,6 +302,7 @@ function OnboardingProvider({ children }) {
         dispatch,
         allInterests,
         modeConfig,
+        trigger,
       }}
     >
       {children}

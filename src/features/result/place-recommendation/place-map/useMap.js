@@ -1,50 +1,33 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useOnboarding } from '../../../../contexts/OnboardingContext';
+import { intersectionSets } from '../../../../utils/set';
 
 const { kakao } = window;
 
-export function useMap({
-  ref,
-  isLoading,
-  error,
-  position,
-  onLoaded,
-  category,
-}) {
+export function useMap({ ref, isLoading, error, position, onLoaded }) {
+  const { isWithOther, selectedInterests, allInterests, modeConfig, trigger } =
+    useOnboarding();
+
+  const interestCategories = allInterests
+    .filter((config) => selectedInterests.includes(config.value))
+    .map((config) => config.categories);
+
+  const unionedSet = interestCategories.reduce((acc, set) => {
+    for (const item of set) {
+      acc.add(item);
+    }
+    return acc;
+  }, new Set());
+
+  const modeCategories = isWithOther
+    ? modeConfig['together']
+    : modeConfig['alone'];
+
   const { distanceConfig, distanceConfigIndex } = useOnboarding();
   const { distance, zoomLevel } = distanceConfig[distanceConfigIndex];
 
-  const searchPlaces = useCallback(
-    (map) => {
-      const places = new kakao.maps.services.Places();
-      
-      places.keywordSearch(
-        category,
-        (data, status) => {
-          if (status === kakao.maps.services.Status.OK) {
-            onLoaded(data);
-
-            data.forEach((place) => {
-              new kakao.maps.Marker({
-                map: map,
-                position: new kakao.maps.LatLng(place.y, place.x),
-              });
-            });
-          }
-        },
-        {
-          x: position.lng,
-          y: position.lat,
-          radius: distance,
-        }
-      );
-    },
-    [distance, position?.lng, position?.lat, category, onLoaded]
-  );
-
   useEffect(() => {
-    if (isLoading || error) return;
-    if (!kakao?.maps || !position) return;
+    if (isLoading || error || !kakao?.maps || !position) return;
 
     const options = {
       center: new kakao.maps.LatLng(position.lat, position.lng),
@@ -52,7 +35,45 @@ export function useMap({
     };
 
     const map = new kakao.maps.Map(ref.current, options);
+    const categories = [...intersectionSets(unionedSet, modeCategories)];
+    const searchPromises = categories.map((category) => {
+      return new Promise((resolve) => {
+        const places = new kakao.maps.services.Places();
 
-    searchPlaces(map);
-  }, [ref, isLoading, error, position, distance, zoomLevel, searchPlaces]);
+        places.keywordSearch(
+          category,
+          (data) => {
+            resolve({ data, category });
+          },
+          {
+            x: position.lng,
+            y: position.lat,
+            radius: distance,
+          }
+        );
+      });
+    });
+
+    Promise.all(searchPromises).then((results) => {
+      let maxCategoryData = [];
+
+      let selectedCategory = null;
+
+      results.forEach(({ data, category }) => {
+        if (data.length >= 1 && Math.random() > 0.5) {
+          maxCategoryData = data;
+          selectedCategory = category;
+        }
+      });
+
+      onLoaded(maxCategoryData, selectedCategory);
+
+      maxCategoryData.forEach((place) => {
+        new kakao.maps.Marker({
+          map: map,
+          position: new kakao.maps.LatLng(place.y, place.x),
+        });
+      });
+    });
+  }, [ref, isLoading, error, position, distance, zoomLevel, onLoaded, trigger]);
 }
