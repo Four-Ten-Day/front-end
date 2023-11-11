@@ -3,19 +3,25 @@ import { useOnboarding } from '../../../../contexts/OnboardingContext';
 
 const { kakao } = window;
 
-export function useMap({ ref, isLoading, error, position, onLoaded }) {
+export function useMap({
+  ref,
+  isLoading,
+  error,
+  position,
+  onLoaded,
+  category,
+}) {
   const { distanceConfig, distanceConfigIndex } = useOnboarding();
   const { distance, zoomLevel } = distanceConfig[distanceConfigIndex];
 
   const searchPlaces = useCallback(
     (map) => {
       const places = new kakao.maps.services.Places();
-
+      
       places.keywordSearch(
-        '영화',
+        category,
         (data, status) => {
           if (status === kakao.maps.services.Status.OK) {
-            console.log(data);
             onLoaded(data);
 
             data.forEach((place) => {
@@ -33,7 +39,7 @@ export function useMap({ ref, isLoading, error, position, onLoaded }) {
         }
       );
     },
-    [distance, position?.lng, position?.lat]
+    [distance, position?.lng, position?.lat, category, onLoaded]
   );
 
   useEffect(() => {

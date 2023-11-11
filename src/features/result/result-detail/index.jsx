@@ -9,7 +9,7 @@ import * as S from './styles';
 import { INIT, useOnboarding } from '../../../contexts/OnboardingContext';
 import FakeLoader from '../../../ui/fake-loader';
 
-function ResultDetail() {
+function ResultDetail({ category }) {
   const { dispatch } = useOnboarding();
 
   return (
@@ -19,7 +19,7 @@ function ResultDetail() {
 
         <S.ResultTextBox>
           <S.Span>오늘은..</S.Span>
-          <Heading as="h1">영화보기</Heading>
+          <Heading as="h1">{category}</Heading>
           <S.Span>어때요?</S.Span>
         </S.ResultTextBox>
 
@@ -41,7 +41,7 @@ function ResultDetail() {
 
       <S.Spacer />
 
-      <FakeLoader loadingTime={3000} />
+      {/* <FakeLoader loadingTime={3000} /> */}
       <ResultBackGround />
     </>
   );

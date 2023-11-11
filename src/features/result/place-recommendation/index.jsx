@@ -3,16 +3,17 @@ import * as S from './styles';
 import Carousel from '../../../ui/carousel';
 import PlaceCard from './place-card';
 import PlaceMap from './place-map';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-function PlaceRecommendation() {
+function PlaceRecommendation({ category }) {
   const [recommendedPlaces, setRecommendedPlaces] = useState([]);
 
-  function handleSetPlaces(places) {
+  const handleSetPlaces = useCallback(function (places) {
     setRecommendedPlaces(places);
-  }
+  }, []);
 
-  console.log(recommendedPlaces, '!@#@!');
+  console.log(recommendedPlaces.length);
+  if (recommendedPlaces.length === 0) return <></>;
 
   return (
     <>
@@ -20,7 +21,7 @@ function PlaceRecommendation() {
         <S.Span>👀주변 장소를 추천해줄게요 :)</S.Span>
       </S.PlaceRecommendation>
 
-      <PlaceMap onLoaded={handleSetPlaces} />
+      <PlaceMap onLoaded={handleSetPlaces} category={category} />
 
       <Carousel>
         <Carousel.Content>
