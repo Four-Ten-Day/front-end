@@ -2,7 +2,7 @@ import {
   CLICK_TOGETHER,
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
-import { ButtonIcon } from '../../../../ui/button-icon';
+import ButtonIcon from '../../../../ui/button-icon';
 import { ReactComponent as TogetherSvg } from '../../../../../public/together-v2.svg';
 
 function TogetherButton() {

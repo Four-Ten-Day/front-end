@@ -1,5 +1,5 @@
 import ProgressiveForm from '../../../ui/progressive-form';
-import { ButtonGroup } from '../../../ui/button-group';
+import ButtonGroup from '../../../ui/button-group';
 
 import AloneButton from './alone-button';
 import TogetherButton from './together-button';

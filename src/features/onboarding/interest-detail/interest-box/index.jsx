@@ -2,7 +2,7 @@ import {
   SELECT_ALL_INTERSTS,
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
-import { ButtonIcon } from '../../../../ui/button-icon';
+import ButtonIcon from '../../../../ui/button-icon';
 import * as S from './styles';
 import { ReactComponent as AllSvg } from '../../../../../public/interest-all.svg';
 import InterestButton from './interest-button';

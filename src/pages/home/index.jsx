@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../ui/logo';
 import * as S from './styles';
-import { TextGroup } from '../../ui/text-group';
+import TextGroup from '../../ui/text-group';
 import HomeBackgroundImage from '../../ui/home-background-image';
 
 function Home() {

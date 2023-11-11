@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { useGeolocation } from '../../../hooks/useGeolocation';
 import useWindowSize from '../../../hooks/useWindowSize';
-import Map from '../../onboarding/travel-distance-detail/map';
+
 import * as S from './styles';
-import { useMap } from '../../onboarding/travel-distance-detail/map/useMap';
+
 import Carousel from '../../../ui/carousel';
 import PlaceCard from './place-card';
 
@@ -11,8 +11,6 @@ function PlaceRecommendation() {
   const mapContainerRef = useRef(null);
   const { isLoading, position, error } = useGeolocation();
   const windowSize = useWindowSize();
-
-  useMap({ ref: mapContainerRef, isLoading, error, position });
 
   return (
     <>

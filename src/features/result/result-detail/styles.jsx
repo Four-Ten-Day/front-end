@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonGroup } from '../../../ui/button-group';
+import ButtonGroup from '../../../ui/button-group';
 
 export const Image = styled.img`
   width: 100%;

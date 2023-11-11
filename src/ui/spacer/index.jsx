@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Spacer = styled.div`
+const Spacer = styled.div`
   width: 100%;
 
   height: ${(props) => props.height};
@@ -12,3 +12,5 @@ export const Spacer = styled.div`
       margin-right: -20px;
     `}
 `;
+
+export default Spacer;

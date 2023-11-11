@@ -5,7 +5,7 @@ import { useMap } from './useMap';
 import * as S from './styles';
 import useWindowSize from '../../../../hooks/useWindowSize';
 
-function Map() {
+function DistanceCircleMap() {
   const mapContainerRef = useRef(null);
   const { isLoading, position, error } = useGeolocation();
   const windowSize = useWindowSize();
@@ -15,4 +15,4 @@ function Map() {
   return <S.MapContainer ref={mapContainerRef} width={windowSize.width} />;
 }
 
-export default Map;
+export default DistanceCircleMap;

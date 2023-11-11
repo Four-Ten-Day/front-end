@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,3 +13,5 @@ export const Card = styled.div`
   -webkit-backdrop-filter: blur(10px);
   margin-top: 1.3rem;
 `;
+
+export default Card;

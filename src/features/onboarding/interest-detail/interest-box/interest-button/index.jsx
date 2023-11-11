@@ -2,7 +2,7 @@ import {
   SELECT_INTERESTS,
   useOnboarding,
 } from '../../../../../contexts/OnboardingContext';
-import { ButtonIcon } from '../../../../../ui/button-icon';
+import ButtonIcon from '../../../../../ui/button-icon';
 
 function InterestButton({ value, label, emoji }) {
   const { dispatch, selectedInterests } = useOnboarding();

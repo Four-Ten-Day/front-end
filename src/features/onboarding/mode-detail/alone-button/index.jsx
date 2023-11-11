@@ -3,7 +3,7 @@ import {
   useOnboarding,
 } from '../../../../contexts/OnboardingContext';
 import { ReactComponent as AloneSvg } from '../../../../../public/alone-v2.svg';
-import { ButtonIcon } from '../../../../ui/button-icon';
+import ButtonIcon from '../../../../ui/button-icon';
 
 function AloneButton() {
   const { isWithOther, dispatch } = useOnboarding();

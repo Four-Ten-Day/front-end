@@ -14,7 +14,7 @@ const sizes = {
   `,
 };
 
-export const ButtonIcon = styled.button`
+const ButtonIcon = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,3 +33,5 @@ export const ButtonIcon = styled.button`
       color: var(--color-M_05);
     `};
 `;
+
+export default ButtonIcon;

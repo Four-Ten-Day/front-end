@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../../ui/button';
 import Heading from '../../../ui/heading';
 
-import { Card } from '../../../ui/backdrop-card';
+import Card from '../../../ui/backdrop-card';
 
 import ResultBackGround from './result-background';
 import * as S from './styles';

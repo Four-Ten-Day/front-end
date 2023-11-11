@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const ButtonGroup = styled.div`
+const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,3 +15,5 @@ export const ButtonGroup = styled.div`
 ButtonGroup.defaultProps = {
   gap: '1.6',
 };
+
+export default ButtonGroup;
