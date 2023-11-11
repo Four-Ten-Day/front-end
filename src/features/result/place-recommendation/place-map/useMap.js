@@ -12,7 +12,7 @@ export function useMap({ ref, isLoading, error, position, onLoaded }) {
       const places = new kakao.maps.services.Places();
 
       places.keywordSearch(
-        '노래방',
+        '영화',
         (data, status) => {
           if (status === kakao.maps.services.Status.OK) {
             console.log(data);
