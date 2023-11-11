@@ -12,8 +12,8 @@ function PlaceRecommendation({ category }) {
     setRecommendedPlaces(places);
   }, []);
 
-  console.log(recommendedPlaces.length);
-  if (recommendedPlaces.length === 0) return <></>;
+  // console.log(recommendedPlaces.length);
+  // if (recommendedPlaces.length === 0) return <></>;
 
   return (
     <>
