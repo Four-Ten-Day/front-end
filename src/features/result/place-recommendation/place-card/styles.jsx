@@ -10,6 +10,7 @@ export const Card = styled.div`
 
   padding-bottom: 1.8rem;
   padding-left: 1.2rem;
+  margin-top: 2rem;
 `;
 
 export const Img = styled.img`

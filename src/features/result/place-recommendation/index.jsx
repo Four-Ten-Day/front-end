@@ -1,16 +1,18 @@
-import { useRef } from 'react';
-import { useGeolocation } from '../../../hooks/useGeolocation';
-import useWindowSize from '../../../hooks/useWindowSize';
-
 import * as S from './styles';
 
 import Carousel from '../../../ui/carousel';
 import PlaceCard from './place-card';
+import PlaceMap from './place-map';
+import { useState } from 'react';
 
 function PlaceRecommendation() {
-  const mapContainerRef = useRef(null);
-  const { isLoading, position, error } = useGeolocation();
-  const windowSize = useWindowSize();
+  const [recommendedPlaces, setRecommendedPlaces] = useState([]);
+
+  function handleSetPlaces(places) {
+    setRecommendedPlaces(places);
+  }
+
+  console.log(recommendedPlaces, '!@#@!');
 
   return (
     <>
@@ -18,16 +20,12 @@ function PlaceRecommendation() {
         <S.Span>👀주변 장소를 추천해줄게요 :)</S.Span>
       </S.PlaceRecommendation>
 
-      <div
-        ref={mapContainerRef}
-        width={windowSize.width}
-        style={{ height: '300px' }}
-      />
+      <PlaceMap onLoaded={handleSetPlaces} />
 
       <Carousel>
         <Carousel.Content>
-          {[...new Array(7)].map((_) => (
-            <PlaceCard />
+          {recommendedPlaces.map((recommendedPlace) => (
+            <PlaceCard place={recommendedPlace} key={recommendedPlace.id} />
           ))}
         </Carousel.Content>
       </Carousel>

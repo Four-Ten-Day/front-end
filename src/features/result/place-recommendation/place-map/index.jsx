@@ -4,14 +4,13 @@ import { useMap } from './useMap';
 import * as S from './styles';
 import useWindowSize from '../../../../hooks/useWindowSize';
 
-function DistanceCircleMap() {
+function PlaceMap({ onLoaded }) {
   const mapContainerRef = useRef(null);
   const { isLoading, position, error } = useGeolocation();
   const windowSize = useWindowSize();
-
-  useMap({ ref: mapContainerRef, isLoading, error, position });
+  useMap({ ref: mapContainerRef, isLoading, error, position, onLoaded });
 
   return <S.MapContainer ref={mapContainerRef} width={windowSize.width} />;
 }
 
-export default DistanceCircleMap;
+export default PlaceMap;

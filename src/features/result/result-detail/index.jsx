@@ -41,7 +41,7 @@ function ResultDetail() {
 
       <S.Spacer />
 
-      <FakeLoader loadingTime={3000} />
+      {/* <FakeLoader loadingTime={3000} /> */}
       <ResultBackGround />
     </>
   );
