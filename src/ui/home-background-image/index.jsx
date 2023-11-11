@@ -1,27 +1,9 @@
-// import { createPortal } from 'react-dom';
-// import * as S from './styles';
-
-// function HomeBackgroundImage() {
-//   return createPortal(<S.HomeBackgroundImage />, document.body);
-// }
-// export default HomeBackgroundImage;
-
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
-import styled from 'styled-components';
+
 import animationData from '../../../public/home-animation.json';
 import { createPortal } from 'react-dom';
-
-// 스타일드 컴포넌트 생성
-const StyledAnimationContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% + 4rem);
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-`;
+import * as S from './styles';
 
 const LottieAnimation = () => {
   const animationContainer = useRef(null);
@@ -41,7 +23,7 @@ const LottieAnimation = () => {
   }, []);
 
   return createPortal(
-    <StyledAnimationContainer ref={animationContainer} />,
+    <S.AnimationContainer ref={animationContainer} />,
     document.body
   );
 };
