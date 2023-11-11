@@ -25,6 +25,9 @@ export const Title = styled.h2`
   font-weight: 700;
 
   margin-top: 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Location = styled.div`
@@ -33,6 +36,9 @@ export const Location = styled.div`
   font-weight: 400;
 
   margin-top: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Distance = styled.div`
@@ -41,4 +47,7 @@ export const Distance = styled.div`
   font-size: 1.4rem;
   font-weight: 700;
   margin-top: 3.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
