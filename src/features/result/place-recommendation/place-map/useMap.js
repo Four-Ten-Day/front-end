@@ -66,9 +66,9 @@ export function useMap({ ref, isLoading, error, position, onLoaded }) {
         }
       });
 
-      onLoaded(maxCategoryData, selectedCategory);
+      onLoaded(maxCategoryData.slice(0, 5), selectedCategory);
 
-      maxCategoryData.forEach((place) => {
+      maxCategoryData.slice(0, 5).forEach((place) => {
         new kakao.maps.Marker({
           map: map,
           position: new kakao.maps.LatLng(place.y, place.x),

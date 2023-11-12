@@ -4,7 +4,7 @@ import { ReactComponent as ChevronRightSvg } from '../../../../../public/chevron
 export const Card = styled.div`
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+  /* box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   font-family: 'Nanum Gothic', sans-serif;

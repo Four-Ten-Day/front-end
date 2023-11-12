@@ -1,7 +1,6 @@
 import * as S from './styles';
 
 function PlaceCard({ place }) {
-  console.log(place);
   const { place_name, road_address_name, distance, category_group_name } =
     place;
 

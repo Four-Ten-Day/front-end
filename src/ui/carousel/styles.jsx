@@ -13,6 +13,7 @@ export const Window = styled.div`
 export const Content = styled.div`
   display: flex;
   gap: 1.2rem;
+  border-radius: 15px;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
