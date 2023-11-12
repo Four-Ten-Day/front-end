@@ -42,7 +42,13 @@ function FakeLoader({ loadingTime }) {
       {icons[imageIndex]}
       <Heading
         as="h1"
-        style={{ textAlign: 'left', width: '14.4rem', whiteSpace: 'nowrap' }}
+        style={{
+          textAlign: 'left',
+          width: '14.4rem',
+          whiteSpace: 'nowrap',
+          lineHeight: '1.5',
+          marginBottom: '0.4rem',
+        }}
       >
         랜덤 추천 중
         {[...Array.from({ length: imageIndex })]
@@ -52,7 +58,7 @@ function FakeLoader({ loadingTime }) {
           })
           .join('')}
       </Heading>
-      <span>조금만 기다려 주세요 :)</span>
+      <span style={{ fontSize: '1.8rem', lineHeight: "1.5" }}>조금만 기다려 주세요 :)</span>
     </S.Wrapper>,
     document.body
   );

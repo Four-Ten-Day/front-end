@@ -21,6 +21,7 @@ export const Row = styled.div`
 export const Span = styled.span`
   font-size: 2.8rem;
   white-space: nowrap;
+  line-height: 1;
 `;
 
 export const NextButton = styled(Button).attrs({

@@ -9,6 +9,6 @@ export const MapContainer = styled.div`
   ${(props) =>
     props.width &&
     css`
-      width: calc(${props.width}px - 2rem);
+      width: calc(${props.width}px);
     `}
 `;
