@@ -22,7 +22,7 @@ function Result() {
         recommendedPlaces={recommendedPlaces}
       />
 
-      <FakeLoader loadingTime={300000} />
+      <FakeLoader loadingTime={3000} />
     </>
   );
 }
