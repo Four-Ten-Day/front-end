@@ -17,8 +17,6 @@ const LottieAnimation = () => {
         animationData: animationData,
       });
 
-      anim.setSpeed(0.5);
-
       return () => anim.destroy();
     }, 3000);
 
