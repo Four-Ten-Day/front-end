@@ -14,7 +14,7 @@ function PlaceRecommendation({ onLoaded, recommendedPlaces }) {
       <PlaceMap onLoaded={onLoaded} />
 
       <S.CarouselWrapper>
-        <Carousel contentWidth={335}>
+        <Carousel contentWidth={335} contentLength={recommendedPlaces.length}>
           <Carousel.Content>
             {recommendedPlaces.map((recommendedPlace) => (
               <PlaceCard place={recommendedPlace} key={recommendedPlace.id} />

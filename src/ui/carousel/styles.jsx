@@ -1,13 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Carousel = styled.div`
-  position: relative;
-`;
-
 export const Window = styled.div`
-  margin-left: -1rem;
-  overflow-x: scroll;
-  width: calc(100% - 1rem);
+  overflow-x: hidden;
+  width: 100%;
 `;
 
 export const Content = styled.div`
@@ -26,6 +21,6 @@ export const Content = styled.div`
   ${(props) =>
     props.translatex &&
     css`
-      transform: translateX(${props.translatex}px);
+      transform: translateX(${props.translatex * 100}%);
     `}
 `;
