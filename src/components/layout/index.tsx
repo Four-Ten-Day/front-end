@@ -6,8 +6,8 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen sm:flex sm:justify-center ">
-      <div className="w-full sm:max-w-md">{children}</div>
+    <div className="min-h-screen sm:flex sm:justify-center">
+      <div className="w-full sm:max-w-96 ">{children}</div>
     </div>
   );
 };
