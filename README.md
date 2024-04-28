@@ -1,23 +1,40 @@
-# 오늘 뭐하고 놀지
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### 오놀을 소개합니다!
+## Getting Started
 
-'오늘 무엇하고 놀까'라는 고민에서 벗어날 수 있도록 원하는 컨셉을 입력하면,
-카카오지도 공개 API를 기반으로 내 주변 컨셉에 맞는 놀거리와 장소를 랜덤으로 추천해드리는 서비스에요.
+First, run the development server:
 
-3명의 주니어 기획자, 디자이너, 프론트 개발자가 모여 함께 배워가면서 10일간 최선을 다해서 만들었어요.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### 서비스 특징
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- 쉬운 사용성
-- 테마 필터와 GPS 활용을 통한 맞춤형 정보제공
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### 핵심 기능
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-- 7가지 형용사를 기반으로 필터링하여, 원하는 컨셉을 설정해요.
-- 현재 위치를 기반으로 이동범위를 지정할 수 있어요.
-- 랜덤 기반으로 내가 생각지 못했던 경험들까지 추천받을 수 있어요.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### 서비스 미리보기
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-![new](https://github.com/Four-Ten-Day/front-end/assets/76683390/d96e204e-d854-4834-ab55-8de4525d783a)
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
