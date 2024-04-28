@@ -1,5 +1,11 @@
+import LandingAnimation from '@/components/landing-animation';
+
 const Home = () => {
-  return <span>hello world</span>;
+  return (
+    <>
+      <LandingAnimation />
+    </>
+  );
 };
 
 export default Home;
