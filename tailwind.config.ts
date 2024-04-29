@@ -37,6 +37,12 @@ const config: Config = {
         medium: '20px',
         large: '50px',
       },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],
