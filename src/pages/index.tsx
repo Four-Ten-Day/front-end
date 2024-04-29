@@ -50,7 +50,7 @@ const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = (page: ReactElement) => {
-  return <div className="flex flex-col items-center px-8 py-14">{page}</div>;
+  return <div className="px-8 py-14">{page}</div>;
 };
 
 export default Home;

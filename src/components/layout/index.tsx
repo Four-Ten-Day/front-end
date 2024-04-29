@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen xs:flex xs:justify-center">
       <main
-        className={`w-full py-[60px] ${jua.variable} ${nanumGothic.variable} font-sans xs:max-w-screen-xs`}
+        className={`flex flex-col items-center w-full py-[60px] ${jua.variable} ${nanumGothic.variable} font-sans xs:max-w-screen-xs`}
       >
         {children}
       </main>
