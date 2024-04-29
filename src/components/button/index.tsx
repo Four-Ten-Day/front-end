@@ -37,7 +37,8 @@ const Button = ({
       <Link
         className={
           [base, sizes[size], varinats[variant]].join(' ') +
-          `${disabled ? ' bg-primary-04 text-primary-06 ' : ' '}`
+          `${disabled ? ' bg-primary-04 text-primary-06 ' : ' '}` +
+          rest.className
         }
         href={href}
       >
