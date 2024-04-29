@@ -32,14 +32,12 @@ const Button = ({
   href,
   ...rest
 }: ButtonProps) => {
-  if (href)
+  if (!disabled && href)
     return (
       <Link
-        className={
-          [base, sizes[size], varinats[variant]].join(' ') +
-          `${disabled ? ' bg-primary-04 text-primary-06 ' : ' '}` +
-          rest.className
-        }
+        className={[base, sizes[size], varinats[variant], rest.className].join(
+          ' '
+        )}
         href={href}
       >
         {children}
