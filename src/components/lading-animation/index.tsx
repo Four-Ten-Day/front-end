@@ -15,7 +15,7 @@ const LandingAnimation = () => {
 
   return (
     <Lottie
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 -z-10 overflow-hidden "
+      className="absolute inset-0 w-full left-1/2 -translate-x-1/2 -z-10 overflow-hidden "
       path={'/landing-lottie.json'}
       play={play}
       loop={false}

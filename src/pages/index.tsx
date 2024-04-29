@@ -22,7 +22,7 @@ const Home: NextPageWithLayout = () => {
       <main className="flex flex-col gap-12 w-full">
         <section>
           <h1 className="flex flex-col gap-5 text-center text-h1">
-            <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_1s]">
+            <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_1s] whitespace-nowrap">
               오늘 뭐하고 놀지 고민되나요?
             </span>
             <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_2s] whitespace-nowrap">
