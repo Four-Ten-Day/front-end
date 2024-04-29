@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '393px',
+      },
+      fontFamily: {
+        sans: ['var(--font-jua)'],
+        'nanum-gothic': ['var(--font-nanum-gothic)'],
+      },
       colors: {
         'primary-01': '#020202',
         'primary-02': '#757575',
