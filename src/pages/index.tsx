@@ -1,27 +1,13 @@
 import type { NextPageWithLayout } from './_app';
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import Button from '@/components/button';
 
-const Lottie = dynamic(
-  () => import('react-lottie-player').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-);
+import Button from '@/components/button';
+import LandingAnimation from '@/components/lading-animation';
 
 const Home: NextPageWithLayout = () => {
   return (
     <>
-      <Lottie
-        className="fixed bottom-0 left-1/2 -translate-x-1/2 -z-10 overflow-hidden "
-        path={'/landing-lottie.json'}
-        play={true}
-        loop={false}
-        aria-hidden={true}
-      />
-
       <header className="flex justify-center">
         <Image
           src={'/logo.svg'}
@@ -36,17 +22,28 @@ const Home: NextPageWithLayout = () => {
       <main className="flex flex-col gap-12 w-full">
         <section>
           <h1 className="flex flex-col gap-5 text-center text-h1">
-            <span>오늘 뭐하고 놀지 고민되나요?</span>
-            <span>오놀이 추천해줄게요 :)</span>
+            <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_1s]">
+              오늘 뭐하고 놀지 고민되나요?
+            </span>
+            <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_2s] whitespace-nowrap">
+              오놀이 랜덤으로 추천해줄게요 :)
+            </span>
           </h1>
         </section>
 
         <nav className="flex justify-center">
-          <Button href={'/'} size="M" variant="contained">
+          <Button
+            href={'/'}
+            size="M"
+            variant="contained"
+            className="opacity-0 animate-[fade-in_1s_ease-out_forwards_3s]"
+          >
             네 좋아요!
           </Button>
         </nav>
       </main>
+
+      <LandingAnimation />
     </>
   );
 };
