@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import Button from '@/components/button';
 import LandingAnimation from '@/components/lading-animation';
+import { getModePagePath } from '@/lib/utils/paths';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -33,7 +34,7 @@ const Home: NextPageWithLayout = () => {
 
         <nav className="flex justify-center">
           <Button
-            href={'/'}
+            href={getModePagePath()}
             size="M"
             variant="contained"
             className="opacity-0 animate-[fade-in_1s_ease-out_forwards_3s]"
