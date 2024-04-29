@@ -2,7 +2,7 @@ import type { NextPageWithLayout } from './_app';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import Button from '@/components/button';
 
 const Lottie = dynamic(
   () => import('react-lottie-player').then((mod) => mod.default),
@@ -41,8 +41,10 @@ const Home: NextPageWithLayout = () => {
           </h1>
         </section>
 
-        <nav className="text-center">
-          <Link href={'/'}>네 좋아요!</Link>
+        <nav className="flex justify-center">
+          <Button href={'/'} size="M" variant="contained">
+            네 좋아요!
+          </Button>
         </nav>
       </main>
     </>
