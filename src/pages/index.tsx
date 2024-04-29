@@ -20,7 +20,7 @@ const Home: NextPageWithLayout = () => {
         />
       </h1>
 
-      <main className="flex flex-col gap-12 w-full">
+      <div className="flex flex-col gap-12 w-full">
         <section>
           <h2 className="flex flex-col gap-5 text-center text-h1">
             <span className="opacity-0 animate-[fade-in_1s_ease-out_forwards_1s] whitespace-nowrap">
@@ -42,7 +42,7 @@ const Home: NextPageWithLayout = () => {
             네 좋아요!
           </Button>
         </nav>
-      </main>
+      </div>
 
       <LandingAnimation />
     </>
