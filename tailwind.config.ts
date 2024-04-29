@@ -50,6 +50,9 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
       },
+      boxShadow: {
+        'top-sm': '0px -1px 15px 0px rgba(0, 0, 0, 0.08)',
+      },
     },
   },
   plugins: [],
