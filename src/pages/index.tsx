@@ -36,8 +36,8 @@ const Home: NextPageWithLayout = () => {
       <main className="flex flex-col gap-12 w-full">
         <section>
           <h1 className="flex flex-col gap-5 text-center text-h1">
-            <p>오늘 뭐하고 놀지 고민되나요?</p>
-            <p> 오놀이 추천해줄게요 :)</p>
+            <span>오늘 뭐하고 놀지 고민되나요?</span>
+            <span>오놀이 추천해줄게요 :)</span>
           </h1>
         </section>
 
