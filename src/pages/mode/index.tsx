@@ -1,10 +1,10 @@
-import BottomSheet from '@/components/bottom-sheet';
+import BottomSheet from '@/components/common-ui/bottom-sheet';
 import { NextPageWithLayout } from '../_app';
-import Button from '@/components/button';
+import Button from '@/components/common-ui/button';
 import { ReactElement } from 'react';
-import ModeSelector from '@/features/onboarding/mode-selector';
-import Ellipsis from '@/components/ellipsis';
+import Ellipsis from '@/components/common-ui/ellipsis';
 import { getInterstPagePath } from '@/lib/utils/paths';
+import ModeSelector from '@/components/features/mode/mode-selector';
 
 const Mode: NextPageWithLayout = () => {
   return (

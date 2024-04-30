@@ -2,8 +2,8 @@ import type { NextPageWithLayout } from './_app';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 
-import Button from '@/components/button';
-import LandingAnimation from '@/components/lading-animation';
+import Button from '@/components/common-ui/button';
+import LandingAnimation from '@/components/common-ui/lading-animation';
 import { getModePagePath } from '@/lib/utils/paths';
 
 const Home: NextPageWithLayout = () => {

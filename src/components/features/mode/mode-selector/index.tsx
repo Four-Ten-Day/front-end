@@ -1,4 +1,4 @@
-import FilterButton from '@/components/filter-button';
+import FilterButton from '@/components/common-ui/filter-button';
 import { Mode, modeState } from '@/store/onboarding';
 import Image from 'next/image';
 import { useRecoilState } from 'recoil';
