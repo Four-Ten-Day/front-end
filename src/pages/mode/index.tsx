@@ -4,6 +4,7 @@ import Button from '@/components/button';
 import { ReactElement } from 'react';
 import ModeSelector from '@/features/onboarding/mode-selector';
 import Ellipsis from '@/components/ellipsis';
+import { getInterstPagePath } from '@/lib/utils/paths';
 
 const Mode: NextPageWithLayout = () => {
   return (
@@ -28,7 +29,7 @@ Mode.getLayout = (page: ReactElement) => {
       <div className="flex flex-col gap-16 px-5">{page}</div>
 
       <BottomSheet>
-        <Button href={'/'} size="L" variant="contained">
+        <Button href={getInterstPagePath()} size="L" variant="contained">
           선택완료
         </Button>
       </BottomSheet>
