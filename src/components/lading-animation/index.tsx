@@ -16,7 +16,7 @@ const LandingAnimation = () => {
   return (
     <Lottie
       className="absolute inset-0 w-full left-1/2 -translate-x-1/2 -z-10 overflow-hidden "
-      path={'/landing-lottie.json'}
+      path={'/lotties/landing-lottie.json'}
       play={play}
       loop={false}
       aria-hidden={true}

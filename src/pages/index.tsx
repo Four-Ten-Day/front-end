@@ -11,7 +11,7 @@ const Home: NextPageWithLayout = () => {
     <>
       <h1 className="flex justify-center">
         <Image
-          src={'/logo.svg'}
+          src={'/images/logo.svg'}
           alt="onol logo"
           width={44}
           height={40}
