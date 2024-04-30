@@ -5,7 +5,7 @@ import { ReactElement } from 'react';
 import Ellipsis from '@/components/common-ui/ellipsis';
 import InterestSelector from '@/components/features/interest/interest-selector';
 
-const Mode: NextPageWithLayout = () => {
+const Interest: NextPageWithLayout = () => {
   return (
     <>
       <h1 className="text-h1 text-center">어떤 기분을 느끼고 싶나요?</h1>
@@ -17,7 +17,7 @@ const Mode: NextPageWithLayout = () => {
   );
 };
 
-Mode.getLayout = (page: ReactElement) => {
+Interest.getLayout = (page: ReactElement) => {
   return (
     <>
       <div className="mb-[72px]">
@@ -35,4 +35,4 @@ Mode.getLayout = (page: ReactElement) => {
   );
 };
 
-export default Mode;
+export default Interest;
