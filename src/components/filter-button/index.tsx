@@ -13,7 +13,12 @@ const sizes = {
   L: 'gap-8 h-48',
 };
 
-const FilterButton = ({ size, active, children }: FilterButtonProps) => {
+const FilterButton = ({
+  size,
+  active,
+  children,
+  ...rest
+}: FilterButtonProps) => {
   return (
     <button
       className={[
@@ -25,6 +30,7 @@ const FilterButton = ({ size, active, children }: FilterButtonProps) => {
             : 'border-primary-04 text-primary-04'
         }`,
       ].join(' ')}
+      {...rest}
     >
       {children}
     </button>
