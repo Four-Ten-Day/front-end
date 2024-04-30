@@ -10,3 +10,12 @@ export const isAllInterestsSelectedState = selector({
     return allInterests.length === selectedInterests.length;
   },
 });
+
+export const isNoInterestSelectedState = selector({
+  key: 'isNoInterestSelected',
+  get: ({ get }) => {
+    const selectedInterests = get(selectedInterestState);
+
+    return selectedInterests.length === 0;
+  },
+});
