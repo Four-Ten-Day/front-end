@@ -1,10 +1,10 @@
 import FilterButton from '@/components/common-ui/filter-button';
-import { ModeValue, modeState } from '@/store/mode/atom';
+import { ModeValue, selectedModeState } from '@/store/mode/atom';
 import Image from 'next/image';
 import { useRecoilState } from 'recoil';
 
 const ModeSelector = () => {
-  const [selectedMode, setSelectedMode] = useRecoilState(modeState);
+  const [selectedMode, setSelectedMode] = useRecoilState(selectedModeState);
 
   const handleClick = (mode: ModeValue) => {
     const newMode = mode === selectedMode ? null : mode;
