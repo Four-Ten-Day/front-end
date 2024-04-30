@@ -4,6 +4,7 @@ import Button from '@/components/common-ui/button';
 import { ReactElement } from 'react';
 import Ellipsis from '@/components/common-ui/ellipsis';
 import InterestSelector from '@/components/features/interest/interest-selector';
+import { getDistancePagePath } from '@/lib/utils/paths';
 
 const Interest: NextPageWithLayout = () => {
   return (
@@ -27,7 +28,7 @@ Interest.getLayout = (page: ReactElement) => {
       <div className="flex flex-col gap-16 px-5 w-full">{page}</div>
 
       <BottomSheet>
-        <Button href={'/'} size="L" variant="contained">
+        <Button href={getDistancePagePath()} size="L" variant="contained">
           선택완료
         </Button>
       </BottomSheet>
