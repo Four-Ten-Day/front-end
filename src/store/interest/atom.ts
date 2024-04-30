@@ -106,7 +106,7 @@ const interestFixtures: InterestFixture[] = [
 ];
 
 export const selectedInterestState = atom<InterestValue[]>({
-  key: 'interestState',
+  key: 'selectedInterestState',
   default: [],
 });
 
