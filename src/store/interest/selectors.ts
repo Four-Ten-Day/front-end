@@ -27,7 +27,7 @@ export const isAllInterestsSelectedState = selector({
 });
 
 export const isNoInterestSelectedState = selector({
-  key: 'isNoInterestSelected',
+  key: 'isNoInterestSelectedState',
   get: ({ get }) => {
     const selectedInterests = get(selectedInterestState);
 
