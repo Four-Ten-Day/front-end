@@ -1,8 +1,18 @@
 import { selector } from 'recoil';
-import { selectedModeState } from './atom';
+import { allModeStates, selectedModeState } from './atom';
+
+export const selectedCategoriesByModeState = selector({
+  key: 'selectedCategoriesByModeState',
+  get: ({ get }) => {
+    const selectedMode = get(selectedModeState);
+    const modeFixtures = get(allModeStates);
+
+    return modeFixtures[selectedMode!];
+  },
+});
 
 export const isNoModeSelectedState = selector({
-  key: 'isNoModeSelected',
+  key: 'isNoModeSelectedState',
   get: ({ get }) => {
     const selectedMode = get(selectedModeState);
 
