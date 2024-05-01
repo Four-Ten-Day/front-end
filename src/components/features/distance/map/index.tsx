@@ -1,5 +1,4 @@
 import useGeoLocation from '@/hooks/use-geolocation';
-import { selectedDistanceState } from '@/store/distance/atom';
 import { selectedDistanceFixtureState } from '@/store/distance/selectors';
 import { Circle, Map as KaKaoMap } from 'react-kakao-maps-sdk';
 import { useRecoilValue } from 'recoil';
