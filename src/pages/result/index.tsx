@@ -7,7 +7,7 @@ const Result: NextPageWithLayout = () => {
   return (
     <>
       <Category />
-      <h2>👀 주변 장소를 추천해줄게요 :)</h2>
+
       <Map />
     </>
   );

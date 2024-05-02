@@ -21,15 +21,18 @@ const Map = () => {
   if (!resultPlace) return <div>추천 가능한 곳이 없어요.</div>;
 
   return (
-    <KaKaoMap
-      center={position}
-      style={{ width: '100%', height: '400px' }}
-      level={zoomLevel}
-    >
-      {resultPlace.data.map(({ x, y, id }) => (
-        <MapMarker key={id} position={{ lat: +y, lng: +x }} />
-      ))}
-    </KaKaoMap>
+    <>
+      <h2>👀 주변 장소를 추천해줄게요 :)</h2>
+      <KaKaoMap
+        center={position}
+        style={{ width: '100%', height: '400px' }}
+        level={zoomLevel}
+      >
+        {resultPlace.data.map(({ x, y, id }) => (
+          <MapMarker key={id} position={{ lat: +y, lng: +x }} />
+        ))}
+      </KaKaoMap>
+    </>
   );
 };
 
