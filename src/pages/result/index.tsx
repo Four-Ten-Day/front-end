@@ -2,13 +2,17 @@ import { NextPageWithLayout } from '../_app';
 import { ReactElement } from 'react';
 import Category from '@/components/features/result/category';
 import Map from '@/components/features/result/map';
+import usePlaces from '@/components/features/result/use-places';
 
 const Result: NextPageWithLayout = () => {
+  const { places, popPlace } = usePlaces();
+  const place = places.at(0);
+
   return (
     <>
-      <Category />
+      <Category place={place} popPlace={popPlace} />
 
-      <Map />
+      <Map place={place} />
     </>
   );
 };

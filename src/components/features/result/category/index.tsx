@@ -1,13 +1,37 @@
 import Button from '@/components/common-ui/button';
-import { resultPlaceState } from '@/store/result/selectors';
+import { getModePagePath } from '@/lib/utils/paths';
+import { selectedDistanceState } from '@/store/distance/atom';
+import { selectedInterestState } from '@/store/interest/atom';
+import { selectedModeState } from '@/store/mode/atom';
 import Image from 'next/image';
-import { useRecoilValue } from 'recoil';
+import { useRouter } from 'next/router';
+import { useResetRecoilState } from 'recoil';
+import { SearchResult } from '../use-places';
 
-const Category = () => {
-  const resultPlace = useRecoilValue(resultPlaceState);
+type CategoryProps = {
+  place: SearchResult | undefined;
+  popPlace: () => void;
+};
+
+const Category = ({ place, popPlace }: CategoryProps) => {
+  const router = useRouter();
+  const resetSelectedMode = useResetRecoilState(selectedModeState);
+  const resetSelectedInterests = useResetRecoilState(selectedInterestState);
+  const resetSelectedDistance = useResetRecoilState(selectedDistanceState);
+
+  const handleClickGoBack = () => {
+    resetSelectedDistance();
+    resetSelectedInterests();
+    resetSelectedMode();
+    router.push(getModePagePath());
+  };
+
+  const handleClickAgain = () => {
+    popPlace();
+  };
 
   // TODO: 없을 경우 디자인 하기
-  if (!resultPlace) return null;
+  if (!place) return null;
 
   return (
     <div className="flex justify-center w-full h-[600px] relative">
@@ -16,7 +40,7 @@ const Category = () => {
         alt="백그라운드"
         width={393}
         height={452}
-        className="absolute z-10"
+        className="absolute -z-10"
       />
       <Image
         src={'/images/result-background-down.svg'}
@@ -37,19 +61,17 @@ const Category = () => {
           <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
             오늘은..
           </span>
-          <span className="text-h1 text-primary-01">
-            {resultPlace.category}
-          </span>
+          <span className="text-h1 text-primary-01">{place.category}</span>
           <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
             어때요?
           </span>
         </h1>
 
         <div className="flex justify-center items-center gap-2">
-          <Button size="S" variant="outlined">
+          <Button size="S" variant="outlined" onClick={handleClickGoBack}>
             <span className="font-normal text-h4">처음으로 돌아갈래요</span>
           </Button>
-          <Button size="S" variant="contained">
+          <Button size="S" variant="contained" onClick={handleClickAgain}>
             <span className="font-normal text-h4">다시 추천 받을래요</span>
           </Button>
         </div>
