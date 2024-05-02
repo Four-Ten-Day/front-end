@@ -12,6 +12,11 @@ type DistanceFixture = {
   zoomLevel: ZoomLevel;
 };
 
+export type Position = {
+  lat: number;
+  lng: number;
+};
+
 const distanceFixtures: DistanceFixture[] = [
   {
     distance: 250,
@@ -43,4 +48,12 @@ export const selectedDistanceState = atom<Distance>({
 export const allDistanceState = atom({
   key: 'allDistanceState',
   default: distanceFixtures,
+});
+
+export const positionState = atom<Position>({
+  key: 'positionState',
+  default: {
+    lat: 37.53,
+    lng: 127.02,
+  },
 });
