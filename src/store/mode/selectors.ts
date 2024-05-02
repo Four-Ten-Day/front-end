@@ -7,7 +7,9 @@ export const selectedCategoriesByModeState = selector({
     const selectedMode = get(selectedModeState);
     const modeFixtures = get(allModeStates);
 
-    return modeFixtures[selectedMode!];
+    if (!selectedMode) return new Set<string>();
+
+    return modeFixtures[selectedMode];
   },
 });
 
