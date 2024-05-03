@@ -15,8 +15,8 @@ const Map = ({ place, setMap }: MapProps) => {
   const position = useRecoilValue(positionState);
 
   return (
-    <>
-      <h2>👀 주변 장소를 추천해줄게요 :)</h2>
+    <section className="flex flex-col gap-4 ">
+      <h2 className="text-h3">👀 주변 장소를 추천해줄게요 :)</h2>
       <KaKaoMap
         center={position}
         style={{ width: '100%', height: '400px' }}
@@ -27,7 +27,7 @@ const Map = ({ place, setMap }: MapProps) => {
           <MapMarker key={id} position={{ lat: +y, lng: +x }} />
         ))}
       </KaKaoMap>
-    </>
+    </section>
   );
 };
 
