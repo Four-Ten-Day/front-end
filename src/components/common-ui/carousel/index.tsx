@@ -84,8 +84,6 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
   const { slidesContainerRef, setTotalLength, slideIndex, setSlideIndex } =
     context;
 
-  console.log(children.length);
-
   useEffect(() => {
     setTotalLength(children.length);
     setSlideIndex(0);
