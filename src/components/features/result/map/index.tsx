@@ -1,8 +1,8 @@
-import { positionState } from '@/store/distance/atom';
 import { selectedDistanceFixtureState } from '@/store/distance/selectors';
 import { Map as KaKaoMap, MapMarker } from 'react-kakao-maps-sdk';
 import { useRecoilValue } from 'recoil';
 import { SearchResult } from '../use-places';
+import { positionState } from '@/store/position/atom';
 
 type MapProps = {
   place: SearchResult | undefined;

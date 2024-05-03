@@ -1,14 +1,15 @@
-import BottomSheet from '@/components/common-ui/bottom-sheet';
 import { NextPageWithLayout } from '../_app';
-import Button from '@/components/common-ui/button';
 import { ReactElement } from 'react';
 import Ellipsis from '@/components/common-ui/ellipsis';
 import Map from '@/components/features/distance/map';
 import Slider from '@/components/features/distance/slider';
 import Label from '@/components/features/distance/label';
 import NextPageButton from '@/components/features/distance/next-page-button';
+import useRefreshRestore from '@/hooks/use-refresh-restore';
 
 const Distance: NextPageWithLayout = () => {
+  useRefreshRestore();
+
   return (
     <>
       <h1 className="text-h1 text-center">

@@ -1,24 +1,21 @@
 import { allDistanceState, selectedDistanceState } from '@/store/distance/atom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as RadixSlider from '@radix-ui/react-slider';
-import { useState } from 'react';
+import { selectedDistanceIndexState } from '@/store/distance/selectors';
 
 const Slider = () => {
   const distanceConfigs = useRecoilValue(allDistanceState);
   const [selectedDistance, setSelectedDistance] = useRecoilState(
     selectedDistanceState
   );
-  const [indexValue, setIndexValue] = useState(0);
+  const selectedDistanceIndex = useRecoilValue(selectedDistanceIndexState);
 
   const minValue = 0;
   const maxValue = distanceConfigs.length - 1;
 
   const handleValueChange = ([index]: number[]) => {
-    setIndexValue(index);
     setSelectedDistance(distanceConfigs[index].distance);
   };
-
-  const handleValueCommit = ([index]: number[]) => {};
 
   return (
     <>
@@ -26,7 +23,7 @@ const Slider = () => {
         className="w-full h-4 relative flex items-center"
         min={minValue}
         max={maxValue}
-        value={[indexValue]}
+        value={[selectedDistanceIndex]}
         onValueChange={handleValueChange}
       >
         <RadixSlider.Track className="bg-primary-05 relative grow rounded-full h-1">

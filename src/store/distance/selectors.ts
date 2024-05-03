@@ -12,3 +12,15 @@ export const selectedDistanceFixtureState = selector({
       .at(0)!;
   },
 });
+
+export const selectedDistanceIndexState = selector({
+  key: 'selectedDistanceIndexState',
+  get: ({ get }) => {
+    const selectedDistance = get(selectedDistanceState);
+    const distanceFixtures = get(allDistanceState);
+
+    return distanceFixtures.findIndex(
+      ({ distance }) => distance === selectedDistance
+    );
+  },
+});

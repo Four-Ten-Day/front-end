@@ -1,6 +1,7 @@
 import { selectedCategoriesState } from '@/store/category/selectors';
-import { positionState, selectedDistanceState } from '@/store/distance/atom';
-import { useEffect, useState } from 'react';
+import { selectedDistanceState } from '@/store/distance/atom';
+import { positionState } from '@/store/position/atom';
+import { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 export type SearchResult = {
@@ -12,16 +13,19 @@ const usePlaces = () => {
   const position = useRecoilValue(positionState);
   const categories = useRecoilValue(selectedCategoriesState);
   const distance = useRecoilValue(selectedDistanceState);
+
   const [places, setPlaces] = useState<SearchResult[]>([]);
 
   const popPlace = () => setPlaces([...places.slice(1)]);
+
+  const services = kakao.maps.services;
 
   useEffect(() => {
     const getPlace = async () => {
       const placesPromises: Promise<SearchResult>[] = categories.map(
         (category) => {
           return new Promise((resolve) => {
-            new kakao.maps.services.Places().keywordSearch(
+            new services.Places().keywordSearch(
               category,
               (data) => {
                 resolve({ data, category });
@@ -37,6 +41,7 @@ const usePlaces = () => {
       );
 
       const results = await Promise.allSettled(placesPromises);
+
       const successfulResults = results
         .filter(
           (result): result is PromiseFulfilledResult<SearchResult> =>
@@ -51,7 +56,7 @@ const usePlaces = () => {
     };
 
     getPlace();
-  }, [categories, distance, position.lat, position.lng]);
+  }, [categories, distance, position, services]);
 
   return { places, popPlace };
 };

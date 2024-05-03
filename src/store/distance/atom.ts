@@ -1,4 +1,6 @@
 import { atom } from 'recoil';
+import { localStorageEffect } from '../effects/local-storage-effect';
+import { SELECTED_DISTANCE_KEY } from '@/lib/constants/local-storage-key';
 
 type Distance = 250 | 500 | 1000 | 2000;
 
@@ -12,11 +14,7 @@ type DistanceFixture = {
   zoomLevel: ZoomLevel;
 };
 
-export type Position = {
-  lat: number;
-  lng: number;
-};
-
+// TODO : fixture 수정 방지해야되는데 그냥 selector로 뺀다?? 고민
 const distanceFixtures: DistanceFixture[] = [
   {
     distance: 250,
@@ -43,17 +41,10 @@ const distanceFixtures: DistanceFixture[] = [
 export const selectedDistanceState = atom<Distance>({
   key: 'distanceState',
   default: distanceFixtures[0].distance,
+  effects: [localStorageEffect<Distance>(SELECTED_DISTANCE_KEY)],
 });
 
 export const allDistanceState = atom({
   key: 'allDistanceState',
   default: distanceFixtures,
-});
-
-export const positionState = atom<Position>({
-  key: 'positionState',
-  default: {
-    lat: 37.53,
-    lng: 127.02,
-  },
 });

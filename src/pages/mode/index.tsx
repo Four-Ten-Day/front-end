@@ -3,8 +3,11 @@ import { ReactElement } from 'react';
 import Ellipsis from '@/components/common-ui/ellipsis';
 import ModeSelector from '@/components/features/mode/mode-selector';
 import NextPageButton from '@/components/features/mode/next-page-button';
+import useRefreshRestore from '@/hooks/use-refresh-restore';
 
 const Mode: NextPageWithLayout = () => {
+  useRefreshRestore();
+
   return (
     <>
       <h1 className="text-h1 text-center">오늘은 혼자 놀기? 같이 놀기?</h1>

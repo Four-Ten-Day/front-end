@@ -1,4 +1,6 @@
+import { SELECTED_INTERESTS_KEY } from '@/lib/constants/local-storage-key';
 import { atom } from 'recoil';
+import { localStorageEffect } from '../effects/local-storage-effect';
 
 export type InterestValue =
   | 'active'
@@ -25,6 +27,7 @@ type InterestFixture = {
   categories: Set<string>;
 };
 
+// TODO: fixture selector로 뺀다? 아니면 그냥 둔다?
 const interestFixtures: InterestFixture[] = [
   {
     emojiPath: '/images/interest-active.svg',
@@ -108,6 +111,7 @@ const interestFixtures: InterestFixture[] = [
 export const selectedInterestState = atom<InterestValue[]>({
   key: 'selectedInterestState',
   default: [],
+  effects: [localStorageEffect<InterestValue[]>(SELECTED_INTERESTS_KEY)],
 });
 
 export const allInterestsState = atom<InterestFixture[]>({

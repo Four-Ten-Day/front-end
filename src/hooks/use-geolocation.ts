@@ -1,4 +1,4 @@
-import { Position, positionState } from '@/store/distance/atom';
+import { Position, positionState } from '@/store/position/atom';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
