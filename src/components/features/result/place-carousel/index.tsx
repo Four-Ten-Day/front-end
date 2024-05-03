@@ -23,7 +23,7 @@ const PlaceCarousel = ({ place }: PlaceCarouselProps) => {
               category_group_name,
             }) => (
               <Carousel.Slide key={id}>
-                <div className="w-[354px] rounded-small bg-white/50 backdrop-blur-[10px] p-5 font-nanum-gothic shadow-[0_0_12px_0_rgba(0,0,0,0.25)]">
+                <div className="w-[354px] rounded-small bg-white/50 backdrop-blur-[10px] p-5 font-nanum-gothic">
                   <div className="flex gap-2 items-baseline">
                     <span className="text-primary-01 text-b1 font-bold mb-4">
                       {place_name}
