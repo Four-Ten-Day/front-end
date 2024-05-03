@@ -30,9 +30,6 @@ const Category = ({ place, popPlace }: CategoryProps) => {
     popPlace();
   };
 
-  // TODO: 없을 경우 디자인 하기
-  if (!place) return null;
-
   return (
     <div className="flex justify-center w-full h-[600px] relative">
       <Image
@@ -57,15 +54,19 @@ const Category = ({ place, popPlace }: CategoryProps) => {
           height={200}
         />
 
-        <h1 className="flex flex-col  justify-center items-center gap-4">
-          <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
-            오늘은..
-          </span>
-          <span className="text-h1 text-primary-01">{place.category}</span>
-          <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
-            어때요?
-          </span>
-        </h1>
+        {place ? (
+          <h1 className="flex flex-col  justify-center items-center gap-4">
+            <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
+              오늘은..
+            </span>
+            <span className="text-h1 text-primary-01">{place.category}</span>
+            <span className="text-b3 font-nanum-gothic text-primary-02 font-bold">
+              어때요?
+            </span>
+          </h1>
+        ) : (
+          <h1>앗 추천 데이터가 없어요</h1>
+        )}
 
         <div className="flex justify-center items-center gap-2">
           <Button size="S" variant="outlined" onClick={handleClickGoBack}>

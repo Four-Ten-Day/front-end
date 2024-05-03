@@ -3,16 +3,16 @@ import { Map as KaKaoMap, MapMarker } from 'react-kakao-maps-sdk';
 import { useRecoilValue } from 'recoil';
 import { SearchResult } from '../use-places';
 import { positionState } from '@/store/position/atom';
+import { Dispatch, SetStateAction } from 'react';
 
 type MapProps = {
   place: SearchResult | undefined;
+  setMap: Dispatch<SetStateAction<kakao.maps.Map | null>>;
 };
 
-const Map = ({ place }: MapProps) => {
+const Map = ({ place, setMap }: MapProps) => {
   const { zoomLevel } = useRecoilValue(selectedDistanceFixtureState);
   const position = useRecoilValue(positionState);
-
-  if (!place) return null;
 
   return (
     <>
@@ -21,8 +21,9 @@ const Map = ({ place }: MapProps) => {
         center={position}
         style={{ width: '100%', height: '400px' }}
         level={zoomLevel}
+        onCreate={(map: kakao.maps.Map) => setMap(map)}
       >
-        {place.data.map(({ x, y, id }) => (
+        {place?.data.map(({ x, y, id }) => (
           <MapMarker key={id} position={{ lat: +y, lng: +x }} />
         ))}
       </KaKaoMap>

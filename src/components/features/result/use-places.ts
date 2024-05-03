@@ -9,7 +9,11 @@ export type SearchResult = {
   category: string;
 };
 
-const usePlaces = () => {
+type usePlacesProps = {
+  map: kakao.maps.Map | null;
+};
+
+const usePlaces = ({ map }: usePlacesProps) => {
   const position = useRecoilValue(positionState);
   const categories = useRecoilValue(selectedCategoriesState);
   const distance = useRecoilValue(selectedDistanceState);
@@ -18,14 +22,13 @@ const usePlaces = () => {
 
   const popPlace = () => setPlaces([...places.slice(1)]);
 
-  const services = kakao.maps.services;
-
   useEffect(() => {
+    if (!map) return;
     const getPlace = async () => {
       const placesPromises: Promise<SearchResult>[] = categories.map(
         (category) => {
           return new Promise((resolve) => {
-            new services.Places().keywordSearch(
+            new kakao.maps.services.Places().keywordSearch(
               category,
               (data) => {
                 resolve({ data, category });
@@ -56,7 +59,7 @@ const usePlaces = () => {
     };
 
     getPlace();
-  }, [categories, distance, position, services]);
+  }, [categories, distance, position, map]);
 
   return { places, popPlace };
 };
