@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import Category from '@/components/features/result/category';
 import Map from '@/components/features/result/map';
 import usePlaces from '@/components/features/result/use-places';
+import PlaceCarousel from '@/components/features/result/place-carousel';
 
 const Result: NextPageWithLayout = () => {
   const { places, popPlace } = usePlaces();
@@ -12,7 +13,10 @@ const Result: NextPageWithLayout = () => {
     <>
       <Category place={place} popPlace={popPlace} />
 
-      <Map place={place} />
+      <div className="flex flex-col">
+        <Map place={place} />
+        <PlaceCarousel place={place} />
+      </div>
     </>
   );
 };
