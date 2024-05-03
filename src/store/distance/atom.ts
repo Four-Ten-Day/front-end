@@ -42,7 +42,7 @@ const distanceFixtures: DistanceFixture[] = [
 
 export const selectedDistanceState = atom<Distance>({
   key: 'distanceState',
-  default: 250,
+  default: distanceFixtures[0].distance,
 });
 
 export const allDistanceState = atom({
