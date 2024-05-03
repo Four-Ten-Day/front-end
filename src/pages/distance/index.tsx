@@ -6,7 +6,7 @@ import Ellipsis from '@/components/common-ui/ellipsis';
 import Map from '@/components/features/distance/map';
 import Slider from '@/components/features/distance/slider';
 import Label from '@/components/features/distance/label';
-import { getResultPagePath } from '@/lib/utils/paths';
+import NextPageButton from '@/components/features/distance/next-page-button';
 
 const Distance: NextPageWithLayout = () => {
   return (
@@ -22,6 +22,8 @@ const Distance: NextPageWithLayout = () => {
         <Label />
         <Slider />
       </section>
+
+      <NextPageButton />
     </>
   );
 };
@@ -34,12 +36,6 @@ Distance.getLayout = (page: ReactElement) => {
       </div>
 
       <div className="flex flex-col gap-4 w-full mb-40">{page}</div>
-
-      <BottomSheet>
-        <Button href={getResultPagePath()} size="L" variant="contained">
-          선택완료
-        </Button>
-      </BottomSheet>
     </>
   );
 };

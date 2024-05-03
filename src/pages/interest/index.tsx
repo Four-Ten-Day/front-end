@@ -5,6 +5,7 @@ import { ReactElement } from 'react';
 import Ellipsis from '@/components/common-ui/ellipsis';
 import InterestSelector from '@/components/features/interest/interest-selector';
 import { getDistancePagePath } from '@/lib/utils/paths';
+import NextPageButton from '@/components/features/interest/next-page-button';
 
 const Interest: NextPageWithLayout = () => {
   return (
@@ -14,6 +15,14 @@ const Interest: NextPageWithLayout = () => {
       <section className="flex justify-center">
         <InterestSelector />
       </section>
+
+      <BottomSheet>
+        <Button href={getDistancePagePath()} size="L" variant="contained">
+          선택완료
+        </Button>
+      </BottomSheet>
+
+      <NextPageButton />
     </>
   );
 };
@@ -26,12 +35,6 @@ Interest.getLayout = (page: ReactElement) => {
       </div>
 
       <div className="flex flex-col gap-16 px-5 w-full">{page}</div>
-
-      <BottomSheet>
-        <Button href={getDistancePagePath()} size="L" variant="contained">
-          선택완료
-        </Button>
-      </BottomSheet>
     </>
   );
 };
