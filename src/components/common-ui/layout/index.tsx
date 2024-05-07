@@ -1,13 +1,6 @@
+import { jua } from '@/styles/fonts';
 import { ReactNode } from 'react';
-
-import { Jua, Nanum_Gothic } from 'next/font/google';
-
-const jua = Jua({ subsets: ['latin'], weight: '400', variable: '--font-jua' });
-const nanumGothic = Nanum_Gothic({
-  subsets: ['latin'],
-  weight: ['400', '700', '800'],
-  variable: '--font-nanum-gothic',
-});
+import * as S from './styles';
 
 type LayoutProps = {
   children: ReactNode;
@@ -15,13 +8,9 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen xs:flex xs:justify-center">
-      <main
-        className={`flex flex-col items-center w-full py-[60px] ${jua.variable} ${nanumGothic.variable} font-sans xs:max-w-screen-xs`}
-      >
-        {children}
-      </main>
-    </div>
+    <S.Layout>
+      <S.Main className={jua.className}>{children}</S.Main>
+    </S.Layout>
   );
 };
 

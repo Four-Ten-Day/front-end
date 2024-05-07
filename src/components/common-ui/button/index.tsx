@@ -1,28 +1,16 @@
-import Link from 'next/link';
+import * as S from './styles';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import type { UrlObject } from 'url';
-type Url = string | UrlObject;
+import { sizes, variants } from './styles';
+import Link from 'next/link';
+export type Url = string | UrlObject;
 
 type ButtonProps = {
   children: ReactNode;
   size: keyof typeof sizes;
-  variant: keyof typeof varinats;
-
+  variant: keyof typeof variants;
   href?: Url;
 } & ComponentPropsWithoutRef<'button'>;
-
-const base = 'flex justify-center items-center text-h2';
-
-const sizes = {
-  S: 'w-[154px] h-14 rounded-small',
-  M: 'w-60 h-16 rounded-medium',
-  L: 'w-[352px] h-16 rounded-medium',
-};
-
-const varinats = {
-  contained: 'bg-primary-01 text-primary-06',
-  outlined: 'border border-primary-01 text-primary-01',
-};
 
 const Button = ({
   children,
@@ -32,29 +20,25 @@ const Button = ({
   href,
   ...rest
 }: ButtonProps) => {
-  if (!disabled && href)
+  if (!disabled && href) {
     return (
-      <Link
-        className={[base, sizes[size], varinats[variant], rest.className].join(
-          ' '
-        )}
+      <S.Button
+        as={Link}
+        disabled={disabled}
+        size={size}
+        variant={variant}
         href={href}
+        {...rest}
       >
         {children}
-      </Link>
+      </S.Button>
     );
+  }
 
   return (
-    <button
-      className={
-        [base, sizes[size], varinats[variant]].join(' ') +
-        `${disabled ? ' bg-primary-04 text-primary-06 ' : ' '}`
-      }
-      disabled={disabled}
-      {...rest}
-    >
+    <S.Button size={size} variant={variant} disabled={disabled} {...rest}>
       {children}
-    </button>
+    </S.Button>
   );
 };
 

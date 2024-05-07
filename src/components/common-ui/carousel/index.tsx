@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import * as S from './styles';
 
 type SliderProps = {
   children: ReactNode;
@@ -20,7 +21,6 @@ type SlidesContainerProps = {
 
 type SlideProps = {
   children: ReactNode;
-  className?: string;
 };
 
 type LeftButtonProps = {
@@ -42,7 +42,7 @@ interface SlideContextType {
 
 const CarouselContext = createContext<SlideContextType>(null!);
 
-const Directions = {
+export const Directions = {
   LEFT: -1,
   RIGHT: 1,
 } as const;
@@ -71,7 +71,7 @@ const Carousel = ({ children }: SliderProps) => {
         setSlideIndex,
       }}
     >
-      <div className="relative overflow-hidden">{children}</div>
+      <S.Carousel>{children}</S.Carousel>
     </CarouselContext.Provider>
   );
 };
@@ -90,22 +90,14 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
   }, [children, setSlideIndex, setTotalLength]);
 
   return (
-    <div
-      ref={slidesContainerRef}
-      style={{ transform: `translateX(-${slideIndex * 100}%)` }}
-      className={`flex transition-transform duration-300 ease-in-out transform`}
-    >
+    <S.SlidesContainer ref={slidesContainerRef} slideIndex={slideIndex}>
       {children}
-    </div>
+    </S.SlidesContainer>
   );
 };
 
-const Slide = ({ children, className }: SlideProps) => {
-  return (
-    <div className={'flex justify-center min-w-full max-w-full ' + className}>
-      {children}
-    </div>
-  );
+const Slide = ({ children }: SlideProps) => {
+  return <S.Slide>{children}</S.Slide>;
 };
 
 const LeftButton = ({ children }: LeftButtonProps) => {
@@ -117,12 +109,9 @@ const LeftButton = ({ children }: LeftButtonProps) => {
   if (slideIndex === 0) return null;
 
   return (
-    <button
-      onClick={() => move('LEFT')}
-      className="absolute top-1/2 -translate-y-1/2 z-10 left-0"
-    >
+    <S.Button onClick={() => move('LEFT')} direction="LEFT">
       {children}
-    </button>
+    </S.Button>
   );
 };
 
@@ -136,12 +125,9 @@ const RightButton = ({ children }: RightButtonProps) => {
   if (slideIndex === totalLength - 1) return null;
 
   return (
-    <button
-      onClick={() => move('RIGHT')}
-      className="absolute top-1/2 -translate-y-1/2 z-10 right-0 "
-    >
+    <S.Button onClick={() => move('RIGHT')} direction="RIGHT">
       {children}
-    </button>
+    </S.Button>
   );
 };
 

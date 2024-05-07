@@ -1,9 +1,5 @@
-import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-
-const Lottie = dynamic(() => import('react-lottie-player'), {
-  ssr: false,
-});
+import * as S from './styles';
 
 const LandingAnimation = () => {
   const [play, setPlay] = useState(false);
@@ -14,8 +10,7 @@ const LandingAnimation = () => {
   }, []);
 
   return (
-    <Lottie
-      className="absolute inset-0 w-full left-1/2 -translate-x-1/2 -z-10 overflow-hidden "
+    <S.Lottie
       path={'/lotties/landing-lottie.json'}
       play={play}
       loop={false}
@@ -23,4 +18,5 @@ const LandingAnimation = () => {
     />
   );
 };
+
 export default LandingAnimation;

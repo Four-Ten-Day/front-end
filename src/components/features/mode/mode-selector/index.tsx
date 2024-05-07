@@ -2,6 +2,7 @@ import FilterButton from '@/components/common-ui/filter-button';
 import { ModeValue, selectedModeState } from '@/store/mode/atom';
 import Image from 'next/image';
 import { useRecoilState } from 'recoil';
+import * as S from './styles';
 
 const ModeSelector = () => {
   const [selectedMode, setSelectedMode] = useRecoilState(selectedModeState);
@@ -12,7 +13,7 @@ const ModeSelector = () => {
   };
 
   return (
-    <>
+    <S.ModeSelector>
       <FilterButton
         size="L"
         active={selectedMode === 'alone'}
@@ -39,7 +40,7 @@ const ModeSelector = () => {
         />
         <span>같이 놀거에요</span>
       </FilterButton>
-    </>
+    </S.ModeSelector>
   );
 };
 

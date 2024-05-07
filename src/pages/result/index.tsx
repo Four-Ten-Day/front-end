@@ -18,18 +18,8 @@ const Result: NextPageWithLayout = () => {
     <>
       <Category place={place} popPlace={popPlace} />
 
-      <div className="flex flex-col">
-        <Map place={place} setMap={setMap} />
-        <PlaceCarousel place={place} />
-      </div>
-    </>
-  );
-};
-
-Result.getLayout = (page: ReactElement) => {
-  return (
-    <>
-      <div className="flex flex-col gap-16 w-full -mt-[60px]">{page}</div>
+      <Map place={place} setMap={setMap} />
+      <PlaceCarousel place={place} />
     </>
   );
 };

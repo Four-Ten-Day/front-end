@@ -7,6 +7,7 @@ import {
 import { isAllInterestsSelectedState } from '@/store/interest/selectors';
 import Image from 'next/image';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import * as S from './styles';
 
 const InterestSelector = () => {
   const allInterests = useRecoilValue(allInterestsState);
@@ -34,7 +35,7 @@ const InterestSelector = () => {
   };
 
   return (
-    <div className="grid gap-3 grid-cols-2">
+    <S.InterestSelector>
       <FilterButton active={isAllSelcted} size="S" onClick={handleClickAll}>
         <Image
           src={'/images/interest-all.svg'}
@@ -59,7 +60,7 @@ const InterestSelector = () => {
           </FilterButton>
         );
       })}
-    </div>
+    </S.InterestSelector>
   );
 };
 

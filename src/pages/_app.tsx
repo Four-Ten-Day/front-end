@@ -1,4 +1,5 @@
 import Layout from '@/components/common-ui/layout';
+import GlobalStyle from '@/styles/global-style';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
@@ -17,6 +18,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <RecoilRoot>
+      <GlobalStyle />
       <Layout>{getLayout(<Component {...pageProps} />)}</Layout>{' '}
     </RecoilRoot>
   );

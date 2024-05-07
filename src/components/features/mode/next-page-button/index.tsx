@@ -1,6 +1,6 @@
 import BottomSheet from '@/components/common-ui/bottom-sheet';
 import Button from '@/components/common-ui/button';
-import { getInterstPagePath, getResultPagePath } from '@/lib/utils/paths';
+import { getInterstPagePath } from '@/lib/utils/paths';
 import { selectedModeState } from '@/store/mode/atom';
 import { useRecoilValue } from 'recoil';
 
@@ -20,4 +20,5 @@ const NextPageButton = () => {
     </BottomSheet>
   );
 };
+
 export default NextPageButton;
