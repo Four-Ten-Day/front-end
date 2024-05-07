@@ -15,6 +15,7 @@ const LandingAnimation = () => {
       play={play}
       loop={false}
       aria-hidden={true}
+      rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
     />
   );
 };
