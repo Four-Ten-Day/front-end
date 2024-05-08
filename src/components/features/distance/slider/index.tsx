@@ -1,6 +1,5 @@
 import { allDistanceState, selectedDistanceState } from '@/store/distance/atom';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import * as RadixSlider from '@radix-ui/react-slider';
 import { selectedDistanceIndexState } from '@/store/distance/selectors';
 import * as S from './styles';
 
@@ -29,7 +28,7 @@ const Slider = () => {
         <S.Track>
           <S.Range />
         </S.Track>
-        <S.Thumb />
+        <S.Thumb aria-valuenow={selectedDistance} />
         <S.ValueContainer>
           {distanceConfigs.map(({ label }) => (
             <S.Value key={label} />
