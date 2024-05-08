@@ -14,7 +14,7 @@ const Mode: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>오놀 | 혼자? 같이?</title>
+        <title>오놀 | 누구랑</title>
         <meta
           name="description"
           content="차분히 혼자 시간을 즐길지, 신나게 친구들과 놀지 선택해보세요."

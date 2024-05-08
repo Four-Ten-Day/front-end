@@ -14,10 +14,10 @@ const Interest: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>오놀 | 어떤 기분을 느끼고 싶나요?</title>
+        <title>오놀 | 기분</title>
         <meta
           name="description"
-          content="오늘은 어떤 컨셉으로 놀고 싶은지 정해보세요."
+          content="오늘은 어떤 기분으로 놀고 싶은지 정해보세요."
         />
       </Head>
       <Ellipsis current={2} total={3} />
