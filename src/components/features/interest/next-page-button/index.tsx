@@ -9,14 +9,16 @@ const NextPageButton = () => {
 
   return (
     <BottomSheet>
-      <Button
-        href={getDistancePagePath()}
-        size="L"
-        variant="contained"
-        disabled={selectedInterest.length === 0}
-      >
-        선택 완료
-      </Button>
+      <nav>
+        <Button
+          href={getDistancePagePath()}
+          size="L"
+          variant="contained"
+          disabled={selectedInterest.length === 0}
+        >
+          선택 완료
+        </Button>
+      </nav>
     </BottomSheet>
   );
 };
