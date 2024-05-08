@@ -8,14 +8,16 @@ const NextPageButton = () => {
   const selectedDistance = useRecoilValue(selectedDistanceState);
   return (
     <BottomSheet>
-      <Button
-        href={getResultPagePath()}
-        size="L"
-        variant="contained"
-        disabled={!selectedDistance}
-      >
-        추천 받기
-      </Button>
+      <nav>
+        <Button
+          href={getResultPagePath()}
+          size="L"
+          variant="contained"
+          disabled={!selectedDistance}
+        >
+          추천 받기
+        </Button>
+      </nav>
     </BottomSheet>
   );
 };
