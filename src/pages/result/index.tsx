@@ -1,5 +1,5 @@
 import { NextPageWithLayout } from '../_app';
-import { ReactElement, useState } from 'react';
+import { useState } from 'react';
 import Category from '@/components/features/result/category';
 import Map from '@/components/features/result/map';
 
