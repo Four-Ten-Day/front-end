@@ -3,7 +3,7 @@ import Script from 'next/script';
 
 const Document = () => {
   return (
-    <Html lang="en">
+    <Html lang="ko">
       <Head />
       <body>
         <Main />
