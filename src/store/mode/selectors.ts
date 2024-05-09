@@ -1,15 +1,23 @@
 import { selector } from 'recoil';
-import { allModeStates, selectedModeState } from './atom';
+import { selectedModeState } from './atom';
+import { modeFixture } from '@/fixtures/mode-fixutre';
+
+export const modeFixtureState = selector({
+  key: 'modeFixtureState',
+  get: () => {
+    return modeFixture;
+  },
+});
 
 export const selectedCategoriesByModeState = selector({
   key: 'selectedCategoriesByModeState',
   get: ({ get }) => {
     const selectedMode = get(selectedModeState);
-    const modeFixtures = get(allModeStates);
+    const modeFixture = get(modeFixtureState);
 
     if (!selectedMode) return new Set<string>();
 
-    return modeFixtures[selectedMode];
+    return modeFixture[selectedMode];
   },
 });
 

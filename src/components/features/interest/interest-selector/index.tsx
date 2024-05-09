@@ -1,17 +1,17 @@
 import FilterButton from '@/components/common-ui/filter-button';
+import { selectedInterestState } from '@/store/interest/atom';
 import {
-  InterestValue,
-  allInterestsState,
-  selectedInterestState,
-} from '@/store/interest/atom';
-import { isAllInterestsSelectedState } from '@/store/interest/selectors';
+  interestFixtureState,
+  isAllInterestsSelectedState,
+} from '@/store/interest/selectors';
 import Image from 'next/image';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as S from './styles';
 import { VisuallyHidden } from '@/components/common-ui/visually-hidden';
+import { InterestValue } from '@/fixtures/interest-fixture';
 
 const InterestSelector = () => {
-  const allInterests = useRecoilValue(allInterestsState);
+  const allInterests = useRecoilValue(interestFixtureState);
   const [selectedInterests, setSelectedInterests] = useRecoilState(
     selectedInterestState
   );

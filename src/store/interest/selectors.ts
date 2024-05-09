@@ -1,14 +1,20 @@
 import { selector } from 'recoil';
-import { allInterestsState, selectedInterestState } from './atom';
+import { selectedInterestState } from './atom';
+import { interestFixture } from '@/fixtures/interest-fixture';
+
+export const interestFixtureState = selector({
+  key: 'interestFixtureState',
+  get: () => interestFixture,
+});
 
 export const selectedCategoriesByInterestState = selector({
   key: 'selectedCategoriesByInterestState',
   get: ({ get }) => {
     const selectedInterests = get(selectedInterestState);
-    const interestFixtures = get(allInterestsState);
+    const interestFixture = get(interestFixtureState);
 
     return new Set(
-      interestFixtures
+      interestFixture
         .filter(({ value }) => selectedInterests.includes(value))
         .map(({ categories }) => categories)
         .flatMap((set) => Array.from(set))
@@ -20,9 +26,9 @@ export const isAllInterestsSelectedState = selector({
   key: 'isAllInterestsSelectedState',
   get: ({ get }) => {
     const selectedInterests = get(selectedInterestState);
-    const allInterests = get(allInterestsState);
+    const interestFixture = get(interestFixtureState);
 
-    return allInterests.length === selectedInterests.length;
+    return interestFixture.length === selectedInterests.length;
   },
 });
 
