@@ -19,10 +19,6 @@ type SlidesContainerProps = {
   children: ReactNode[];
 };
 
-type SlideProps = {
-  children: ReactNode;
-};
-
 type LeftButtonProps = {
   children: ReactNode;
 };
@@ -31,14 +27,14 @@ type RightButtonProps = {
   children: ReactNode;
 };
 
-interface SlideContextType {
+type SlideContextType = {
   move: (direction: keyof typeof Directions) => void;
   slidesContainerRef: MutableRefObject<HTMLDivElement>;
   totalLength: number;
   setTotalLength: Dispatch<SetStateAction<number>>;
   slideIndex: number;
   setSlideIndex: Dispatch<SetStateAction<number>>;
-}
+};
 
 const CarouselContext = createContext<SlideContextType>(null!);
 
@@ -60,6 +56,17 @@ const Carousel = ({ children }: SliderProps) => {
     setSlideIndex((prev) => prev + Directions[direction]);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'ArrowLeft':
+        move('LEFT');
+        break;
+      case 'ArrowRight':
+        move('RIGHT');
+        break;
+    }
+  };
+
   return (
     <CarouselContext.Provider
       value={{
@@ -71,7 +78,7 @@ const Carousel = ({ children }: SliderProps) => {
         setSlideIndex,
       }}
     >
-      <S.Carousel>{children}</S.Carousel>
+      <S.Carousel onKeyDown={(e) => handleKeyDown(e)}>{children}</S.Carousel>
     </CarouselContext.Provider>
   );
 };
