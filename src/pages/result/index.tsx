@@ -2,17 +2,27 @@ import { NextPageWithLayout } from '../_app';
 import { useState } from 'react';
 import Category from '@/components/features/result/category';
 import Map from '@/components/features/result/map';
-import usePlaces from '@/components/features/result/use-places';
 import PlaceCarousel from '@/components/features/result/place-carousel';
 import useRefreshRestore from '@/hooks/use-refresh-restore';
 import Head from 'next/head';
+import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { modeFixture } from '@/fixtures/mode-fixutre';
+import { ModeValue } from '@/store/mode/atom';
+import { interestFixture } from '@/fixtures/interest-fixture';
+import { CategoryWithPlaces, getPlaceInfo } from '@/services/get-place-info';
 
-const Result: NextPageWithLayout = () => {
+const Result: NextPageWithLayout<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ placeInformations }) => {
   useRefreshRestore();
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const { places, popPlace } = usePlaces({ map });
 
-  const place = places.at(0);
+  const [categoriesWithPlaces, setcategoriesWithPlaces] =
+    useState(placeInformations);
+
+  const place = categoriesWithPlaces.at(0);
+  const popPlace = () =>
+    setcategoriesWithPlaces([...categoriesWithPlaces.slice(1)]);
 
   return (
     <>
@@ -26,5 +36,40 @@ const Result: NextPageWithLayout = () => {
     </>
   );
 };
+
+export const getServerSideProps = (async ({ query }) => {
+  const { mode, interests, distance, lat, lng } = query;
+  let modeCategories = modeFixture[(mode as ModeValue)!];
+  if (!(modeCategories instanceof Set)) {
+    modeCategories = new Set();
+  }
+  const interestsCategories = interestFixture
+    .filter(({ value }) => interests?.includes(value))
+    .map(({ categories }) => categories)
+    .reduce(
+      (accumulator, currentSet) => new Set([...accumulator, ...currentSet]),
+      new Set()
+    );
+
+  const categories = [...new Set([...modeCategories, ...interestsCategories])];
+
+  const promises = categories.map(async (category) => {
+    return getPlaceInfo({
+      query: category,
+      lat: lat as string,
+      lng: lng as string,
+      distance: distance as string,
+    });
+  });
+
+  const results = (await Promise.allSettled(promises))
+    .filter(
+      (result): result is PromiseFulfilledResult<CategoryWithPlaces> =>
+        result.status === 'fulfilled' && result.value.documents.length > 0
+    )
+    .map((result) => result.value);
+
+  return { props: { placeInformations: results } };
+}) satisfies GetServerSideProps<{}>;
 
 export default Result;

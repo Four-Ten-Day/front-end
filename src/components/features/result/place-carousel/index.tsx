@@ -1,22 +1,20 @@
 import Carousel from '@/components/common-ui/carousel';
-import { SearchResult } from '../use-places';
 import * as S from './styles';
 import { nanumGothic } from '@/styles/fonts';
+import { CategoryWithPlaces } from '@/services/get-place-info';
 
 type PlaceCarouselProps = {
-  place: SearchResult | undefined;
+  place: CategoryWithPlaces | undefined;
 };
 
 const PlaceCarousel = ({ place }: PlaceCarouselProps) => {
   if (!place) return null;
 
-  const { data } = place;
-
   return (
     <S.PlaceCarousel>
       <Carousel>
         <Carousel.SlidesContainer>
-          {data.map(
+          {place.documents.map(
             ({
               id,
               distance,

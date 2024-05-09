@@ -6,11 +6,11 @@ import { selectedModeState } from '@/store/mode/atom';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useResetRecoilState } from 'recoil';
-import { SearchResult } from '../use-places';
 import * as S from './styles';
+import { CategoryWithPlaces } from '@/services/get-place-info';
 
 type CategoryProps = {
-  place: SearchResult | undefined;
+  place: CategoryWithPlaces | undefined;
   popPlace: () => void;
 };
 
@@ -60,16 +60,22 @@ const Category = ({ place, popPlace }: CategoryProps) => {
             <S.Subtitle>어때요?</S.Subtitle>
           </S.CategoryTitle>
         ) : (
-          <S.Title>앗 추천 데이터가 없어요</S.Title>
+          <>
+            <S.Subtitle>앗 추천 데이터가 없어요!</S.Subtitle>
+            <S.Subtitle>좀 더 다양한 선택지를 골라보는건 어때요? 😊</S.Subtitle>
+          </>
         )}
 
         <S.ButtonGroup>
           <Button size="S" variant="outlined" onClick={handleClickGoBack}>
             <S.ButtonSpan>처음으로 돌아갈래요</S.ButtonSpan>
           </Button>
-          <Button size="S" variant="contained" onClick={handleClickAgain}>
-            <S.ButtonSpan>다시 추천 받을래요</S.ButtonSpan>
-          </Button>
+
+          {place && (
+            <Button size="S" variant="contained" onClick={handleClickAgain}>
+              <S.ButtonSpan>다시 추천 받을래요</S.ButtonSpan>
+            </Button>
+          )}
         </S.ButtonGroup>
       </S.Card>
     </S.Category>
