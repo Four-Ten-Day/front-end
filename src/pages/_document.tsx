@@ -9,7 +9,7 @@ const Document = () => {
         <Main />
         <NextScript />
         <Script
-          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_MAP_KEY}&libraries=services&autoload=false`}
+          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_MAP_KEY}&autoload=false`}
           strategy="beforeInteractive"
         />
       </body>

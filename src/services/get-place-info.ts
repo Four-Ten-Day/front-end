@@ -36,7 +36,7 @@ export const getPlaceInfo = async ({
     {
       method: 'GET',
       headers: {
-        Authorization: 'KakaoAK 3fb8d8c3a093412f03a2e31b0238ec8f',
+        Authorization: `KakaoAK ${process.env.KAKAO_MAP_KEY}`,
         KA: 'sdk/v2 os/javascript lang/ko device/web origin/http://localhost:3000',
         'Content-Type': 'application/json;charset=UTF-8',
       },
