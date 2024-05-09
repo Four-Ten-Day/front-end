@@ -1,6 +1,3 @@
 {
-  "extends": "react-app",
-  "rules": {
-    "react/self-closing-comp": "error"
-  }
+  "extends": "next/core-web-vitals"
 }
