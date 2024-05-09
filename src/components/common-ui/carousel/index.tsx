@@ -90,14 +90,20 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
   }, [children, setSlideIndex, setTotalLength]);
 
   return (
-    <S.SlidesContainer ref={slidesContainerRef} slideIndex={slideIndex}>
-      {children}
+    <S.SlidesContainer
+      aria-label="캐루셀"
+      aria-live="polite"
+      tabIndex={0}
+      ref={slidesContainerRef}
+      slideIndex={slideIndex}
+    >
+      {children.map((child, idx) => (
+        <S.Slide key={idx} aria-hidden={idx !== slideIndex}>
+          {child}
+        </S.Slide>
+      ))}
     </S.SlidesContainer>
   );
-};
-
-const Slide = ({ children }: SlideProps) => {
-  return <S.Slide>{children}</S.Slide>;
 };
 
 const LeftButton = ({ children }: LeftButtonProps) => {
@@ -109,7 +115,11 @@ const LeftButton = ({ children }: LeftButtonProps) => {
   if (slideIndex === 0) return null;
 
   return (
-    <S.Button onClick={() => move('LEFT')} direction="LEFT">
+    <S.Button
+      aria-label="캐루셀 왼쪽 이동"
+      onClick={() => move('LEFT')}
+      direction="LEFT"
+    >
       {children}
     </S.Button>
   );
@@ -125,14 +135,17 @@ const RightButton = ({ children }: RightButtonProps) => {
   if (slideIndex === totalLength - 1) return null;
 
   return (
-    <S.Button onClick={() => move('RIGHT')} direction="RIGHT">
+    <S.Button
+      aria-label="캐루셀 오른쪽 이동"
+      onClick={() => move('RIGHT')}
+      direction="RIGHT"
+    >
       {children}
     </S.Button>
   );
 };
 
 Carousel.SlidesContainer = SlidesContainer;
-Carousel.Slide = Slide;
 Carousel.LeftButton = LeftButton;
 Carousel.RightButton = RightButton;
 

@@ -24,16 +24,16 @@ const PlaceCarousel = ({ place }: PlaceCarouselProps) => {
               road_address_name,
               category_group_name,
             }) => (
-              <Carousel.Slide key={id}>
-                <S.SlideContent className={nanumGothic.className}>
-                  <S.Header>
-                    <S.Place>{place_name}</S.Place>
-                    <S.Category>{category_group_name}</S.Category>
-                  </S.Header>
-                  <S.Address>{road_address_name}</S.Address>
-                  <S.Distance>{distance}m</S.Distance>
-                </S.SlideContent>
-              </Carousel.Slide>
+              <S.SlideContent className={nanumGothic.className} key={id}>
+                <S.Header>
+                  <S.Place>{place_name}</S.Place>
+                  <S.Category>{category_group_name}</S.Category>
+                </S.Header>
+                <S.Address>
+                  {road_address_name} <br />
+                </S.Address>
+                <S.Distance>{distance}m</S.Distance>
+              </S.SlideContent>
             )
           )}
         </Carousel.SlidesContainer>
