@@ -1,6 +1,7 @@
 import { jua } from '@/styles/fonts';
 import { ReactNode } from 'react';
 import * as S from './styles';
+import UserInfo from '../user-info';
 
 type LayoutProps = {
   children: ReactNode;
@@ -8,8 +9,9 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <S.Layout>
-      <S.Main className={jua.className}>{children}</S.Main>
+    <S.Layout className={jua.className}>
+      <UserInfo />
+      <S.Main>{children}</S.Main>
     </S.Layout>
   );
 };
