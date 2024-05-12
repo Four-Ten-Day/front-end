@@ -1,40 +1,45 @@
-import { boxShadow, breakpoints, colors } from '@/styles/theme';
-import styled from '@emotion/styled';
+import { getLoginPagePath } from '@/lib/utils/paths';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-
-const StyledUserInfo = styled.div`
-  position: fixed;
-  text-align: end;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  padding: 8px 20px;
-  width: 100%;
-  max-width: ${breakpoints.xs};
-`;
+import { useRouter } from 'next/router';
+import * as S from './styles';
 
 const UserInfo = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  if (router.pathname === getLoginPagePath()) return null;
+  if (status === 'loading') return null;
 
   return (
-    <StyledUserInfo>
+    <S.UserInfo>
       {session ? (
         <>
-          {/* TODO: 없을 경우 기본 이미지 삽입*/}
+          <S.UserImage
+            src={session.user?.image ?? '/images/user.svg'}
+            width={24}
+            height={24}
+            alt="유저 프로필"
+          />
           <Image
-            src={session.user?.image!}
-            width={32}
-            height={32}
-            alt="유저"
-          ></Image>
-          <button onClick={() => signOut()}>로그아웃</button>
+            src={'/images/logout.svg'}
+            alt="로그아웃"
+            width={24}
+            height={24}
+            onClick={() => signOut()}
+          />
         </>
       ) : (
-        <button onClick={() => signIn()}>로그인</button>
+        <Image
+          src={'/images/login.svg'}
+          alt="로그인"
+          width={24}
+          height={24}
+          onClick={() => signIn()}
+        />
       )}
-    </StyledUserInfo>
+    </S.UserInfo>
   );
 };
+
 export default UserInfo;
