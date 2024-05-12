@@ -13,7 +13,7 @@ const UserInfo = () => {
 
   return (
     <S.UserInfo>
-      {session ? (
+      {status === 'authenticated' ? (
         <>
           <S.UserImage
             src={session.user?.image ?? '/images/user.svg'}
@@ -21,22 +21,24 @@ const UserInfo = () => {
             height={24}
             alt="유저 프로필"
           />
-          <Image
-            src={'/images/logout.svg'}
-            alt="로그아웃"
-            width={24}
-            height={24}
-            onClick={() => signOut()}
-          />
+          <button onClick={() => signOut()}>
+            <Image
+              src={'/images/logout.svg'}
+              alt="로그아웃"
+              width={24}
+              height={24}
+            />
+          </button>
         </>
       ) : (
-        <Image
-          src={'/images/login.svg'}
-          alt="로그인"
-          width={24}
-          height={24}
-          onClick={() => signIn()}
-        />
+        <button onClick={() => signIn()}>
+          <Image
+            src={'/images/login.svg'}
+            alt="로그인"
+            width={24}
+            height={24}
+          />
+        </button>
       )}
     </S.UserInfo>
   );
