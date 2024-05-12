@@ -1,7 +1,7 @@
 import { borderRadius, colors, fontSize } from '@/styles/theme';
 import styled from '@emotion/styled';
 
-export const PlaceCarousel = styled.div`
+export const PlaceCarousel = styled.section`
   position: relative;
   z-index: 100;
   transform: translateY(-33.33%);
@@ -19,7 +19,7 @@ export const SlideContent = styled.div`
   padding: 20px;
 `;
 
-export const Header = styled.div`
+export const Heading = styled.h4`
   display: flex;
   gap: 8px;
   align-items: baseline;

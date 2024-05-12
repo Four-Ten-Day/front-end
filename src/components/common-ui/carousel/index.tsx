@@ -98,7 +98,6 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
 
   return (
     <S.SlidesContainer
-      aria-label="캐루셀"
       aria-live="polite"
       tabIndex={0}
       ref={slidesContainerRef}

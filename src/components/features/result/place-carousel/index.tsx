@@ -2,6 +2,7 @@ import Carousel from '@/components/common-ui/carousel';
 import * as S from './styles';
 import { nanumGothic } from '@/styles/fonts';
 import { CategoryWithPlaces } from '@/services/get-place-info';
+import { VisuallyHidden } from '@/components/common-ui/visually-hidden';
 
 type PlaceCarouselProps = {
   place: CategoryWithPlaces | undefined;
@@ -11,7 +12,11 @@ const PlaceCarousel = ({ place }: PlaceCarouselProps) => {
   if (!place) return null;
 
   return (
-    <S.PlaceCarousel>
+    <S.PlaceCarousel aria-labelledby="place-recommendation">
+      <VisuallyHidden>
+        <h3 id="place-recommendation">주변 놀거리 추천</h3>
+      </VisuallyHidden>
+
       <Carousel>
         <Carousel.SlidesContainer>
           {place.documents.map(
@@ -23,10 +28,10 @@ const PlaceCarousel = ({ place }: PlaceCarouselProps) => {
               category_group_name,
             }) => (
               <S.SlideContent className={nanumGothic.className} key={id}>
-                <S.Header>
+                <S.Heading>
                   <S.Place>{place_name}</S.Place>
                   <S.Category>{category_group_name}</S.Category>
-                </S.Header>
+                </S.Heading>
                 <S.Address>
                   {road_address_name} <br />
                 </S.Address>

@@ -35,13 +35,15 @@ const Category = ({ place, popPlace }: CategoryProps) => {
     <S.Category>
       <S.BackgroundImage
         src={'/images/result-background.svg'}
-        alt="백그라운드"
+        alt="배경화면"
+        aria-hidden={true}
         width={393}
         height={452}
       />
       <S.BackgroundImage
         src={'/images/result-background-down.svg'}
-        alt="백그라운드"
+        aria-hidden="true"
+        alt="배경화면"
         width={393}
         height={567}
       />
