@@ -28,7 +28,9 @@ const Slider = () => {
         <S.Track>
           <S.Range />
         </S.Track>
-        <S.Thumb aria-valuenow={selectedDistance} />
+        <S.Thumb
+          aria-valuetext={distanceConfigs[selectedDistanceIndex].label}
+        />
         <S.ValueContainer>
           {distanceConfigs.map(({ label }) => (
             <S.Value key={label} />

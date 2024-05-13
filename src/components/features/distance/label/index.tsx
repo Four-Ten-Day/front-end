@@ -6,7 +6,7 @@ const Label = () => {
   const { label } = useRecoilValue(selectedDistanceFixtureState);
 
   return (
-    <S.Label role="status">
+    <S.Label>
       <S.Span>{label}</S.Span> 이동 가능해요!
     </S.Label>
   );
