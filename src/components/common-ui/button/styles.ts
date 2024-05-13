@@ -36,8 +36,4 @@ export const Button = styled.button<{
   background-color: ${({ disabled }) =>
     disabled ? `${colors.primary04}` : ''};
   color: ${({ disabled }) => (disabled ? `${colors.primary06}` : '')};
-  /* ${({ disabled }) =>
-    disabled
-      ? `background-color: ${colors.primary04}; color: ${colors.primary06};`
-      : ''} */
 `;

@@ -27,7 +27,7 @@ export const FilterButton = styled.button<{
   ${({ size }) => sizes[size]}
   border-color: ${({ active }) =>
     active ? colors.primary01 : colors.primary04};
-  color: ${({ active }) => (active ? colors.primary06 : colors.primary04)};
+  color: ${({ active }) => (active ? colors.primary06 : colors.primary02)};
   background-color: ${({ active }) =>
-    active ? colors.primary01 : 'transparent'};
+    active ? colors.primary01 : colors.primary06};
 `;
