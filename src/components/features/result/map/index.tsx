@@ -8,10 +8,9 @@ import { CategoryWithPlaces } from '@/services/get-place-info';
 
 type MapProps = {
   place: CategoryWithPlaces | undefined;
-  setMap: Dispatch<SetStateAction<kakao.maps.Map | null>>;
 };
 
-const Map = ({ place, setMap }: MapProps) => {
+const Map = ({ place }: MapProps) => {
   const { zoomLevel } = useRecoilValue(selectedDistanceFixtureState);
   const position = useRecoilValue(positionState);
 
@@ -24,7 +23,6 @@ const Map = ({ place, setMap }: MapProps) => {
         center={position}
         style={{ width: '100%', height: '400px' }}
         level={zoomLevel - 1}
-        onCreate={(map: kakao.maps.Map) => setMap(map)}
       >
         {place?.documents.map(({ x, y, id }) => (
           <MapMarker key={id} position={{ lat: +y, lng: +x }} />

@@ -15,7 +15,6 @@ const Result: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ placeInformations }) => {
   useRefreshRestore();
-  const [map, setMap] = useState<kakao.maps.Map | null>(null);
 
   const [categoriesWithPlaces, setcategoriesWithPlaces] =
     useState(placeInformations);
@@ -31,7 +30,7 @@ const Result: NextPageWithLayout<
         <meta name="description" content="추천해준 장소로 떠나보세요." />
       </Head>
       <Category place={place} popPlace={popPlace} />
-      <Map place={place} setMap={setMap} />
+      <Map place={place} />
       <PlaceCarousel place={place} />
     </>
   );
@@ -40,9 +39,7 @@ const Result: NextPageWithLayout<
 export const getServerSideProps = (async ({ query }) => {
   const { mode, interests, distance, lat, lng } = query;
   let modeCategories = modeFixture[(mode as ModeValue)!];
-  if (!(modeCategories instanceof Set)) {
-    modeCategories = new Set();
-  }
+
   const interestsCategories = interestFixture
     .filter(({ value }) => interests?.includes(value))
     .map(({ categories }) => categories)
