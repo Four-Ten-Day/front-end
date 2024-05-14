@@ -29,6 +29,9 @@ const Slider = () => {
           <S.Range />
         </S.Track>
         <S.Thumb
+          aria-valuemin={distanceConfigs[0].distance}
+          aria-valuemax={distanceConfigs[distanceConfigs.length - 1].distance}
+          aria-valuenow={selectedDistance}
           aria-valuetext={distanceConfigs[selectedDistanceIndex].label}
         />
         <S.ValueContainer>
