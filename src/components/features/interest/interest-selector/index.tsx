@@ -59,7 +59,13 @@ const InterestSelector = () => {
         role="checkbox"
         aria-checked={isAllSelcted}
       >
-        <Image src={'/images/interest-all.svg'} alt="" width={24} height={25} />
+        <Image
+          src={'/images/interest-all.svg'}
+          alt=""
+          aria-hidden={true}
+          width={24}
+          height={25}
+        />
         <span>전체 선택</span>
       </FilterButton>
 
@@ -75,7 +81,13 @@ const InterestSelector = () => {
             role="checkbox"
             aria-checked={isSelected}
           >
-            <Image src={emojiPath} alt="" width={24} height={25} />
+            <Image
+              src={emojiPath}
+              aria-hidden={true}
+              alt=""
+              width={24}
+              height={25}
+            />
             <span>{label}</span>
           </FilterButton>
         );

@@ -33,7 +33,13 @@ const ModeSelector = () => {
           role="checkbox"
           aria-checked={selectedMode === 'alone'}
         >
-          <Image src={'/images/mode-alone.svg'} alt="" width={75} height={76} />
+          <Image
+            src={'/images/mode-alone.svg'}
+            alt=""
+            aria-hidden={true}
+            width={75}
+            height={76}
+          />
           <span>혼자 놀거에요</span>
         </FilterButton>
         <FilterButton
@@ -46,6 +52,7 @@ const ModeSelector = () => {
           <Image
             src={'/images/mode-together.svg'}
             alt=""
+            aria-hidden={true}
             width={75}
             height={76}
           />
