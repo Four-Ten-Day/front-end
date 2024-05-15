@@ -1,27 +1,21 @@
-import { getLoginPagePath } from '@/lib/utils/paths';
-import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import * as S from './styles';
+import { useSession } from '@/context/session-context';
 
 const UserInfo = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  if (router.pathname === getLoginPagePath()) return null;
-  if (status === 'loading') return null;
+  const { login, logout, user } = useSession();
 
   return (
     <S.UserInfo>
-      {status === 'authenticated' ? (
+      {user ? (
         <>
           <S.UserImage
-            src={session.user?.image ?? '/images/user.svg'}
+            src={user.avatar_url ?? '/images/user.svg'}
             width={24}
             height={24}
             alt="유저 프로필"
           />
-          <button onClick={() => signOut()}>
+          <button onClick={() => logout()}>
             <Image
               src={'/images/logout.svg'}
               alt="로그아웃"
@@ -31,7 +25,7 @@ const UserInfo = () => {
           </button>
         </>
       ) : (
-        <button onClick={() => signIn()}>
+        <button onClick={() => login()}>
           <Image
             src={'/images/login.svg'}
             alt="로그인"
