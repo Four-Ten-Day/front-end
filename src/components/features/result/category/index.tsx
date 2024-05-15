@@ -62,10 +62,10 @@ const Category = ({ place, popPlace }: CategoryProps) => {
             <S.Subtitle>어때요?</S.Subtitle>
           </S.CategoryTitle>
         ) : (
-          <>
+          <S.NoPlaceHeadig>
             <S.Subtitle>앗 추천 데이터가 없어요!</S.Subtitle>
             <S.Subtitle>좀 더 다양한 선택지를 골라보는건 어때요? 😊</S.Subtitle>
-          </>
+          </S.NoPlaceHeadig>
         )}
 
         <S.ButtonGroup>

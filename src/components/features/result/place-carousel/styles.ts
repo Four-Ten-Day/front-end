@@ -19,13 +19,13 @@ export const SlideContent = styled.div`
   padding: 20px;
 `;
 
-export const Heading = styled.h4`
+export const Heading = styled.div`
   display: flex;
   gap: 8px;
   align-items: baseline;
 `;
 
-export const Place = styled.span`
+export const Place = styled.h4`
   color: ${colors.primary01};
   font-size: ${fontSize.b1};
   font-weight: bold;

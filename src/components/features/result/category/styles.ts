@@ -63,3 +63,10 @@ export const ButtonSpan = styled.span`
   font-weight: 400;
   font-size: ${fontSize.h4};
 `;
+
+export const NoPlaceHeadig = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
