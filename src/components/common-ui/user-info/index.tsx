@@ -1,9 +1,15 @@
 import Image from 'next/image';
 import * as S from './styles';
 import { useSession } from '@/context/session-context';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { getLoginPagePath } from '@/lib/utils/paths';
 
 const UserInfo = () => {
-  const { login, logout, user } = useSession();
+  const { logout, user } = useSession();
+  const router = useRouter();
+
+  if (router.pathname === getLoginPagePath()) return null;
 
   return (
     <S.UserInfo>
@@ -25,14 +31,14 @@ const UserInfo = () => {
           </button>
         </>
       ) : (
-        <button onClick={() => login()}>
+        <Link href={'/login'}>
           <Image
             src={'/images/login.svg'}
             alt="로그인"
             width={24}
             height={24}
           />
-        </button>
+        </Link>
       )}
     </S.UserInfo>
   );
