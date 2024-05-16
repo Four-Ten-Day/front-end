@@ -1,10 +1,13 @@
+import { getHomePagePath } from '@/lib/utils/paths';
+import { SessionData, sessionOptions } from '@/lib/utils/session';
+import { getIronSession } from 'iron-session';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const cookie = 'user=; HttpOnly; Path=/; Max-Age=0;';
-  res.setHeader('Set-Cookie', cookie);
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const session = await getIronSession<SessionData>(req, res, sessionOptions);
 
-  res.redirect('/');
+  session.destroy();
+  res.redirect(getHomePagePath());
 };
 
 export default handler;

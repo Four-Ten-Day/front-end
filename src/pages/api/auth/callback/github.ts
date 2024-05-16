@@ -1,3 +1,6 @@
+import { getHomePagePath } from '@/lib/utils/paths';
+import { SessionData, sessionOptions } from '@/lib/utils/session';
+import { getIronSession } from 'iron-session';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -39,20 +42,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
 
-    if (!userResponse.ok) {
-      throw new Error('Failed to fetch user data');
-    }
+    if (!userResponse.ok) throw new Error('Failed to fetch user data');
 
     const user = await userResponse.json();
 
-    const cookie = `user=${encodeURIComponent(
-      JSON.stringify(user)
-    )}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24}; ${
-      process.env.NODE_ENV === 'production' ? 'Secure;' : ''
-    } SameSite=Strict`;
-    res.setHeader('Set-Cookie', cookie);
+    const session = await getIronSession<SessionData>(req, res, sessionOptions);
 
-    res.redirect('/');
+    session.user = user;
+    session.isLoggedIn = true;
+    await session.save();
+
+    res.redirect(getHomePagePath());
   } catch (error) {
     if (error instanceof Error) res.status(500).json({ error: error.message });
     else res.status(500).json({ error: 'Internal server error' });
