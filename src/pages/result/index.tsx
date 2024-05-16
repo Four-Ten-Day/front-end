@@ -38,7 +38,10 @@ const Result: NextPageWithLayout<
 
 export const getServerSideProps = (async ({ query }) => {
   const { mode, interests, distance, lat, lng } = query;
-  let modeCategories = modeFixture[(mode as ModeValue)!];
+
+  const modeCategories = !mode
+    ? new Set<string>()
+    : modeFixture[mode as NonNullable<ModeValue>];
 
   const interestsCategories = interestFixture
     .filter(({ value }) => interests?.includes(value))
