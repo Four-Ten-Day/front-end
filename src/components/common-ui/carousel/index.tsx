@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 import * as S from './styles';
+import { VisuallyHidden } from '../visually-hidden';
 
 type SliderProps = {
   children: ReactNode;
@@ -29,7 +30,7 @@ type RightButtonProps = {
 
 type SlideContextType = {
   move: (direction: keyof typeof Directions) => void;
-  slidesContainerRef: MutableRefObject<HTMLDivElement>;
+  slidesContainerRef: MutableRefObject<HTMLUListElement>;
   totalLength: number;
   setTotalLength: Dispatch<SetStateAction<number>>;
   slideIndex: number;
@@ -45,7 +46,7 @@ export const Directions = {
 
 const Carousel = ({ children }: SliderProps) => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const slidesContainerRef = useRef<HTMLDivElement>(null!);
+  const slidesContainerRef = useRef<HTMLUListElement>(null!);
   const [totalLength, setTotalLength] = useState<number>(0);
 
   const move = (direction: keyof typeof Directions) => {
@@ -97,17 +98,15 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
   }, [children, setSlideIndex, setTotalLength]);
 
   return (
-    <S.SlidesContainer
-      aria-live="polite"
-      tabIndex={0}
-      ref={slidesContainerRef}
-      slideIndex={slideIndex}
-    >
+    <S.SlidesContainer ref={slidesContainerRef} slideIndex={slideIndex}>
       {children.map((child, idx) => (
         <S.Slide key={idx} aria-hidden={idx !== slideIndex}>
           {child}
         </S.Slide>
       ))}
+      <VisuallyHidden aria-live="polite">
+        {children.length}개 아이템 중 {slideIndex + 1}번째 아이템
+      </VisuallyHidden>
     </S.SlidesContainer>
   );
 };

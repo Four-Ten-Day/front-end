@@ -6,13 +6,13 @@ export const Carousel = styled.div`
   overflow: hidden;
 `;
 
-export const SlidesContainer = styled.div<{ slideIndex: number }>`
+export const SlidesContainer = styled.ul<{ slideIndex: number }>`
   display: flex;
   transition: transform 0.3s ease-in-out;
   transform: ${({ slideIndex }) => `translateX(-${slideIndex * 100}%)`};
 `;
 
-export const Slide = styled.div`
+export const Slide = styled.li`
   display: flex;
   justify-content: center;
   min-width: 100%;
