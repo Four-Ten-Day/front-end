@@ -9,6 +9,7 @@ export const Layout = styled.div`
 `;
 
 export const Main = styled.main`
+  position: relative;
   width: 100%;
   @media (min-width: 393px) {
     max-width: 393px;

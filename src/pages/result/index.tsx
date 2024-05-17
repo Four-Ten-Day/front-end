@@ -1,5 +1,5 @@
 import { NextPageWithLayout } from '../_app';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Category from '@/components/features/result/category';
 import Map from '@/components/features/result/map';
 import PlaceCarousel from '@/components/features/result/place-carousel';
@@ -10,18 +10,43 @@ import { modeFixture } from '@/fixtures/mode-fixutre';
 import { ModeValue } from '@/store/mode/atom';
 import { interestFixture } from '@/fixtures/interest-fixture';
 import { CategoryWithPlaces, getPlaceInfo } from '@/services/get-place-info';
+import Router from 'next/router';
+import Loader from '@/components/features/result/loader';
 
 const Result: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ placeInformations }) => {
-  useRefreshRestore();
-
+  const [isPageLoading, setIsPageLoading] = useState(false);
+  const [isFakeLoading, setIsFakeLoading] = useState(true);
   const [categoriesWithPlaces, setcategoriesWithPlaces] =
     useState(placeInformations);
 
   const place = categoriesWithPlaces.at(0);
   const popPlace = () =>
     setcategoriesWithPlaces([...categoriesWithPlaces.slice(1)]);
+
+  useRefreshRestore();
+
+  useEffect(() => {
+    setTimeout(() => setIsFakeLoading(false), 3000);
+  }, []);
+
+  useEffect(() => {
+    const routeEventStart = () => setIsPageLoading(true);
+    const routeEventEnd = () => setIsPageLoading(false);
+
+    Router.events.on('routeChangeStart', routeEventStart);
+    Router.events.on('routeChangeComplete', routeEventEnd);
+    Router.events.on('routeChangeError', routeEventEnd);
+
+    return () => {
+      Router.events.off('routeChangeStart', routeEventStart);
+      Router.events.off('routeChangeComplete', routeEventEnd);
+      Router.events.off('routeChangeError', routeEventEnd);
+    };
+  }, []);
+
+  if (isPageLoading || isFakeLoading) return <Loader />;
 
   return (
     <>
