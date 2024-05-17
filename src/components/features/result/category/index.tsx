@@ -34,14 +34,14 @@ const Category = ({ place, popPlace }: CategoryProps) => {
   return (
     <S.Category>
       <S.BackgroundImage
-        src={'/images/result-background.svg'}
+        src={'/images/result-background-down.webp'}
         alt="배경화면"
         aria-hidden={true}
         width={393}
         height={452}
       />
       <S.BackgroundImage
-        src={'/images/result-background-down.svg'}
+        src={'/images/result-background.webp'}
         aria-hidden="true"
         alt="배경화면"
         width={393}
