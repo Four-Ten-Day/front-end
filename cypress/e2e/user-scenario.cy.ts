@@ -124,20 +124,42 @@ describe('고객 여정', () => {
     cy.findByRole('link', { name: '네 좋아요!' }).click();
     cy.location('pathname').should('equal', '/mode');
 
+    cy.wait(300);
+    cy.compareSnapshot('mode-page');
+    cy.wait(300);
+
     cy.findByRole('checkbox', { name: '혼자 놀거에요' })
       .should('have.attr', 'aria-checked', 'false')
       .click()
       .should('have.attr', 'aria-checked', 'true');
 
+    cy.wait(300);
+    cy.compareSnapshot('mode-alone');
+    cy.wait(300);
+
     cy.findByRole('link', { name: '선택 완료' }).click();
     cy.location('pathname').should('equal', '/interest');
+
+    cy.wait(300);
+    cy.compareSnapshot('interest-page');
+    cy.wait(300);
 
     cy.findByRole('checkbox', { name: '전체 선택' })
       .should('have.attr', 'aria-checked', 'false')
       .click();
 
+    cy.wait(300);
+    cy.compareSnapshot('all-interests-checked');
+    cy.wait(300);
+
     cy.findByRole('link', { name: '선택 완료' }).click();
     cy.location('pathname').should('equal', '/distance');
+
+    cy.hideMap();
+
+    cy.wait(300);
+    cy.compareSnapshot('distance-page');
+    cy.wait(300);
 
     cy.findByRole('slider')
       .should('have.attr', 'aria-valuenow', 250)
@@ -145,7 +167,12 @@ describe('고객 여정', () => {
       .type('{rightArrow}')
       .should('have.attr', 'aria-valuenow', 500);
 
+    cy.wait(300);
+    cy.compareSnapshot('distance-500');
+    cy.wait(300);
+
     cy.findByRole('link', { name: '추천 받기' }).click();
+
     cy.location().should((loc) => {
       expect(loc.search).to.include('mode=alone');
       interests.forEach((interest) =>
@@ -157,6 +184,13 @@ describe('고객 여정', () => {
 
       expect(loc.pathname).to.eq('/result');
     });
+
+    cy.wait(1000);
+    cy.hideMap();
+
+    cy.wait(300);
+    cy.compareSnapshot('result-page');
+    cy.wait(300);
 
     cy.findByRole('heading', {
       name: `오늘은.. ${mockData[0].category} 어때요?`,
@@ -172,6 +206,7 @@ describe('고객 여정', () => {
 
     cy.findByRole('button', { name: '처음으로 돌아갈래요' });
     cy.findByRole('button', { name: '다시 추천 받을래요' }).click();
+
     cy.findByRole('heading', {
       name: `오늘은.. ${mockData[1].category} 어때요?`,
     });
@@ -179,5 +214,9 @@ describe('고객 여정', () => {
     cy.findByRole('button', { name: '다시 추천 받을래요' }).click();
     cy.findByRole('button', { name: '처음으로 돌아갈래요' }).click();
     cy.location('pathname').should('equal', '/mode');
+
+    cy.wait(300);
+    cy.compareSnapshot('go-back-mode-page');
+    cy.wait(300);
   });
 });

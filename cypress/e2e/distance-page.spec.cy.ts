@@ -27,12 +27,8 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         );
       },
     });
-  });
 
-  // TODO: 기본 값이 있기 때문에, 항상 이동 가능해야 함. 이걸 afterEach에 넣는게 맞는지 고민해보기
-  afterEach(() => {
-    cy.findByRole('link', { name: '추천 받기' }).click();
-    cy.location('pathname').should('equal', '/result');
+    cy.hideMap();
   });
 
   describe('페이지에 최초 진입하는 경우', () => {
@@ -41,6 +37,12 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '250m 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.findByRole('heading', { name: '250m 이내 이동 가능해요!' }).should(
+        'exist'
+      );
+
+      cy.compareSnapshot('initial');
     });
   });
 
@@ -52,7 +54,10 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '250m 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.compareSnapshot('250-left');
     });
+
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 500이어야 한다. 헤딩은 "500m 이내 이동 가능해요!"여야 한다. ', () => {
       cy.findByRole('slider')
         .type('{rightArrow}')
@@ -60,6 +65,8 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '500m 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.compareSnapshot('250-right');
     });
   });
 
@@ -82,6 +89,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '250m 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('500-left');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 1000이어야 한다. 헤딩은 "1km 이내 이동 가능해요!"여야 한다.', () => {
@@ -92,6 +106,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '1km 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('500-right');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
   });
 
@@ -115,6 +136,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '500m 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('1000-left');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 2000이어야 한다. 헤딩은 "1km 이상 이동 가능해요!"여야 한다.', () => {
@@ -125,6 +153,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '1km 이상 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('1000-right');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
   });
 
@@ -149,6 +184,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '1km 이내 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('2000-left');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 여전히 2000이어야 한다. 헤딩은 여전히 "1km 이상 이동 가능해요!"여야 한다.', () => {
@@ -159,6 +201,13 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
       cy.findByRole('heading', { name: '1km 이상 이동 가능해요!' }).should(
         'exist'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('2000-right');
+      cy.wait(300);
+
+      cy.findByRole('link', { name: '추천 받기' }).click();
+      cy.location('pathname').should('equal', '/result');
     });
   });
 });

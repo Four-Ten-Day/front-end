@@ -26,6 +26,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'have.attr',
         'disabled'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('initial');
+      cy.wait(300);
     });
   });
 
@@ -36,6 +40,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
       cy.findAllByRole('checkbox').each(($el) => {
         cy.wrap($el).should('have.attr', 'aria-checked', 'true');
       });
+
+      cy.wait(300);
+      cy.compareSnapshot('all-checked');
+      cy.wait(300);
 
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/distance');
@@ -53,6 +61,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'aria-checked',
         'true'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('all-checked-by-others');
+      cy.wait(300);
 
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/distance');
@@ -75,6 +87,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         cy.wrap($el).should('have.attr', 'aria-checked', 'true');
       });
 
+      cy.wait(300);
+      cy.compareSnapshot('all-check-after-some-interests-checked');
+      cy.wait(300);
+
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/distance');
     });
@@ -88,6 +104,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         .should('have.attr', 'aria-checked', 'true')
         .click()
         .should('have.attr', 'aria-checked', 'false');
+
+      cy.wait(300);
+      cy.compareSnapshot('interest-canclled');
+      cy.wait(300);
 
       cy.findByRole('button', { name: '선택 완료' }).should(
         'have.attr',
@@ -110,6 +130,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'false'
       );
 
+      cy.wait(300);
+      cy.compareSnapshot('some-interests-checked');
+      cy.wait(300);
+
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/distance');
     });
@@ -125,6 +149,10 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'have.attr',
         'disabled'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('all-cancelled');
+      cy.wait(300);
     });
   });
 });

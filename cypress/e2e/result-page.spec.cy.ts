@@ -148,6 +148,11 @@ describe('result 페이지 - 유저 선택을 바탕으로 주변 놀거리를 �
       cy.findByRole('heading', {
         name: mockData[0].documents[0].place_name,
       }).should('exist');
+
+      cy.hideMap();
+      cy.wait(300);
+      cy.compareSnapshot('with-category');
+      cy.wait(300);
     });
 
     it(`"다시 추천 받을래요" 버튼을 1번 클릭하면, "오늘은... ${mockData[1].category} 어때요?" 헤딩이 존재해야 한다. "처음으로 돌아갈래요" 버튼과 "다시 추천 받을래요" 버튼이 존재해야 한다.
@@ -169,6 +174,11 @@ describe('result 페이지 - 유저 선택을 바탕으로 주변 놀거리를 �
       cy.findByRole('heading', {
         name: mockData[1].documents[0].place_name,
       }).should('exist');
+      cy.hideMap();
+
+      cy.wait(300);
+      cy.compareSnapshot('recommend-again');
+      cy.wait(300);
     });
 
     it(`"다시 추천 받을래요" 버튼을 카테고리 수만큼 클릭하면, "앗 추천 데이터가 없어요! 좀 더 다양한 선택지를 골라보는건 어때요? 😊" 헤딩이 존재해야 한다. 
@@ -191,8 +201,13 @@ describe('result 페이지 - 유저 선택을 바탕으로 주변 놀거리를 �
       cy.findByRole('heading', {
         name: '👀 주변 장소를 추천해줄게요 :)',
       }).should('not.exist');
+
+      cy.wait(300);
+      cy.compareSnapshot('no-more-recommend');
+      cy.wait(300);
     });
 
+    // TODO: E2E에 들어갈 필요가 있나? 고민해보기
     describe('처음 캐루셀 아이템인 경우', () => {
       it('"캐루셀 왼쪽으로 이동" 버튼은 존재하지 않아야 한다.', () => {
         cy.findByRole('button', { name: '캐루셀 왼쪽 이동' }).should(
@@ -269,6 +284,10 @@ describe('result 페이지 - 유저 선택을 바탕으로 주변 놀거리를 �
       cy.findByRole('heading', {
         name: '👀 주변 장소를 추천해줄게요 :)',
       }).should('not.exist');
+
+      cy.wait(300);
+      cy.compareSnapshot('without-category');
+      cy.wait(300);
 
       cy.findByRole('button', { name: '처음으로 돌아갈래요' }).click();
       cy.location('pathname').should('equal', '/mode');

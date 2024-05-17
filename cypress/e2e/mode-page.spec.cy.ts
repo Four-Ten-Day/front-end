@@ -32,6 +32,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'have.attr',
         'disabled'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('initial');
+      cy.wait(300);
     });
   });
 
@@ -47,6 +51,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'false'
       );
 
+      cy.wait(300);
+      cy.compareSnapshot('alone-checked');
+      cy.wait(300);
+
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/interest');
     });
@@ -61,6 +69,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'aria-checked',
         'false'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('together-checked');
+      cy.wait(300);
 
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/interest');
@@ -84,6 +96,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'have.attr',
         'disabled'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('alone-cancelled');
+      cy.wait(300);
     });
 
     it('"같이 놀거에요" 버튼을 클릭한 후 다시 클릭하면 체크 되지 않은 상태여야 한다. "혼자 놀거에요" 버튼은 여전히 체크 되지 않은 상태여야 한다. "선택 완료" 버튼은 비활성화 상태여야 한다.', () => {
@@ -102,6 +118,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'have.attr',
         'disabled'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('together-cancelled');
+      cy.wait(300);
     });
   });
 
@@ -119,6 +139,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'false'
       );
 
+      cy.wait(300);
+      cy.compareSnapshot('alone-together');
+      cy.wait(300);
+
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/interest');
     });
@@ -135,6 +159,10 @@ describe('mode 페이지 - 혼자 놀지 같이 놀지 결정하는 페이지', 
         'aria-checked',
         'false'
       );
+
+      cy.wait(300);
+      cy.compareSnapshot('together-alone');
+      cy.wait(300);
 
       cy.findByRole('link', { name: '선택 완료' }).click();
       cy.location('pathname').should('equal', '/interest');
