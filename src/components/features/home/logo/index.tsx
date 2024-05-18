@@ -5,7 +5,7 @@ export default function Logo() {
   return (
     <S.Header>
       <Image
-        src={'/images/logo.svg'}
+        src={'/images/logo.webp'}
         alt="오놀 로고"
         width={44}
         height={40}
