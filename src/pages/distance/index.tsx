@@ -17,11 +17,9 @@ const Distance: NextPageWithLayout = () => {
     <>
       <Head>
         <title>오놀 | 이동 가능 거리</title>
-        <meta
-          name="description"
-          content="이동할 수 있는 거리를 선택해보세요."
-        />
+        <meta name="robots" content="noindex" />
       </Head>
+
       <Ellipsis current={3} total={3} />
       <Header />
       <Map />

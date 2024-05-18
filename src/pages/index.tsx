@@ -16,7 +16,12 @@ const Home: NextPageWithLayout = () => {
           name="description"
           content="오늘 뭐하고 놀지 고민 되나요? 오놀이 랜덤으로 추천 해줄게요!"
         />
+        <meta
+          name="keywords"
+          content="주변 놀거리 추천, 데이트 장소 추천, 오늘 뭐하고 놀지, 오놀"
+        />
       </Head>
+
       <Logo />
       <MessageSection />
       <Nav />
