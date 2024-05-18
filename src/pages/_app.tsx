@@ -26,7 +26,10 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           property="og:url"
           content="https://o-nol-git-next-park-wan-seobs-projects.vercel.app/"
         />
-        <meta property="og:image" content="https://ibb.co/yhGmbDX" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/xmPKRyD/real-host.png"
+        />
         <meta
           property="og:description"
           content="오늘 뭐하고 놀지 고민된다면 랜덤으로 추천해줄게요!"
