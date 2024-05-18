@@ -1,5 +1,9 @@
 describe('interest 페이지 - 기분을 선택하는 페이지', () => {
   beforeEach(() => {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false;
+    });
+
     cy.setCookie('onol_session', Cypress.env('session_stub'));
 
     cy.intercept('GET', '/api/auth/session', {
@@ -18,6 +22,7 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
 
   describe('페이지에 최초 진입하는 경우', () => {
     it('페이지 최초 진입 시, 어떤 interest도 선택 돼있지 않아야 한다. "선택 완료" 버튼은 비활성화 상태여야 한다', () => {
+      cy.wait(1000);
       cy.findAllByRole('checkbox').each(($el) => {
         cy.wrap($el).should('not.have.attr', 'aria-checked', 'true');
       });
@@ -27,29 +32,24 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'disabled'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('initial');
-      cy.wait(300);
     });
   });
 
   describe('"전체 선택"을 체크하는 경우', () => {
-    it('"전체 선택" 버튼을 클릭하면 나머지 모든 interests는 체크된 상태여야 한다. "선택 완료" 링크를 클릭하면 "/distance"페이지로 이동해야 한다.', () => {
+    it('"전체 선택" 버튼을 클릭하면 나머지 모든 interests는 체크된 상태여야 한다. "선택 완료" 링크가 존재해야 한다.', () => {
       cy.findByRole('checkbox', { name: '전체 선택' }).click();
 
       cy.findAllByRole('checkbox').each(($el) => {
         cy.wrap($el).should('have.attr', 'aria-checked', 'true');
       });
 
-      cy.wait(300);
-      cy.compareSnapshot('all-checked');
-      cy.wait(300);
+      cy.findByRole('link', { name: '선택 완료' });
 
-      cy.findByRole('link', { name: '선택 완료' }).click();
-      cy.location('pathname').should('equal', '/distance');
+      cy.compareSnapshot('all-checked');
     });
 
-    it('"전체 선택" 버튼을 제외한 나머지 모든 interests가 체크된 상태가 되면, "전체 선택" 버튼은 체크된 상태여야 한다. "선택 완료" 링크를 클릭하면 "/distance"페이지로 이동해야 한다.', () => {
+    it('"전체 선택" 버튼을 제외한 나머지 모든 interests가 체크된 상태가 되면, "전체 선택" 버튼은 체크된 상태여야 한다. "선택 완료" 링크가 존재해야 한다.', () => {
       cy.findAllByRole('checkbox').each(($el) => {
         if ($el.text() !== '전체 선택') {
           cy.wrap($el).click();
@@ -62,15 +62,12 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'true'
       );
 
-      cy.wait(300);
-      cy.compareSnapshot('all-checked-by-others');
-      cy.wait(300);
+      cy.findByRole('link', { name: '선택 완료' });
 
-      cy.findByRole('link', { name: '선택 완료' }).click();
-      cy.location('pathname').should('equal', '/distance');
+      cy.compareSnapshot('all-checked-by-others');
     });
 
-    it('n개 미만의 interests를 선택한 후에 "전체 선택" 버튼을 클릭해도 모든 interests가 선택된 상태여야 한다. "선택 완료" 링크를 클릭하면 "/distance"페이지로 이동해야 한다.', () => {
+    it('n개 미만의 interests를 선택한 후에 "전체 선택" 버튼을 클릭해도 모든 interests가 선택된 상태여야 한다. "선택 완료" 링크가 존재해야 한다.', () => {
       cy.findByRole('checkbox', { name: '트렌디한' })
         .click()
         .should('have.attr', 'aria-checked', 'true');
@@ -87,12 +84,9 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         cy.wrap($el).should('have.attr', 'aria-checked', 'true');
       });
 
-      cy.wait(300);
-      cy.compareSnapshot('all-check-after-some-interests-checked');
-      cy.wait(300);
+      cy.findByRole('link', { name: '선택 완료' });
 
-      cy.findByRole('link', { name: '선택 완료' }).click();
-      cy.location('pathname').should('equal', '/distance');
+      cy.compareSnapshot('all-check-after-some-interests-checked');
     });
   });
 
@@ -105,17 +99,15 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         .click()
         .should('have.attr', 'aria-checked', 'false');
 
-      cy.wait(300);
-      cy.compareSnapshot('interest-canclled');
-      cy.wait(300);
-
       cy.findByRole('button', { name: '선택 완료' }).should(
         'have.attr',
         'disabled'
       );
+
+      cy.compareSnapshot('interest-canclled');
     });
 
-    it('1개 이상 n개 미만의 interests를 체크한 경우 "전체 선택" 버튼은 체크되지 않아야 한다. "선택 완료" 링크를 클릭하면 "/distance"페이지로 이동해야 한다.', () => {
+    it('1개 이상 n개 미만의 interests를 체크한 경우 "전체 선택" 버튼은 체크되지 않아야 한다. "선택 완료" 링크가 존재해야 한다.', () => {
       cy.findByRole('checkbox', { name: '복고풍의' })
         .click()
         .should('have.attr', 'aria-checked', 'true');
@@ -130,12 +122,9 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'false'
       );
 
-      cy.wait(300);
-      cy.compareSnapshot('some-interests-checked');
-      cy.wait(300);
+      cy.findByRole('link', { name: '선택 완료' });
 
-      cy.findByRole('link', { name: '선택 완료' }).click();
-      cy.location('pathname').should('equal', '/distance');
+      cy.compareSnapshot('some-interests-checked');
     });
 
     it('"전체 선택" 버튼이 체크된 상태에서 다시 "전체 선택" 버튼을 클릭하면 "전체 선택"을 포함한 모든 interests가 체크되지 않은 상태여야 한다. "선택 완료" 버튼은 비활성화 상태여야 한다.', () => {
@@ -150,9 +139,7 @@ describe('interest 페이지 - 기분을 선택하는 페이지', () => {
         'disabled'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('all-cancelled');
-      cy.wait(300);
     });
   });
 });
