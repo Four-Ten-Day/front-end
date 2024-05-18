@@ -19,6 +19,10 @@ const Interest: NextPageWithLayout = () => {
           name="description"
           content="오늘은 어떤 기분으로 놀고 싶은지 정해보세요."
         />
+        <meta
+          name="keywords"
+          content="기분별 놀거리, 오늘의 기분, 기분에 따른 추천, 오놀"
+        />
       </Head>
 
       <Ellipsis current={2} total={3} />

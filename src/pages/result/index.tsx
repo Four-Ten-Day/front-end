@@ -53,6 +53,10 @@ const Result: NextPageWithLayout<
       <Head>
         <title>오놀 | 추천 놀거리</title>
         <meta name="description" content="추천해준 장소로 떠나보세요." />
+        <meta
+          name="keywords"
+          content="추천 놀거리, 추천 장소, 오놀 추천, 오놀"
+        />
       </Head>
 
       <Category place={place} popPlace={popPlace} />

@@ -21,6 +21,10 @@ const Distance: NextPageWithLayout = () => {
           name="description"
           content="이동할 수 있는 거리를 선택해보세요."
         />
+        <meta
+          name="keywords"
+          content="이동 거리, 근처 놀거리, 가까운 곳 놀거리, 오놀"
+        />
       </Head>
 
       <Ellipsis current={3} total={3} />
