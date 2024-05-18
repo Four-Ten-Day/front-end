@@ -29,6 +29,7 @@ const Slider = () => {
           <S.Range />
         </S.Track>
         <S.Thumb
+          aria-label="이동 가능한 거리를 선택하세요"
           aria-valuemin={distanceConfigs[0].distance}
           aria-valuemax={distanceConfigs[distanceConfigs.length - 1].distance}
           aria-valuenow={selectedDistance}

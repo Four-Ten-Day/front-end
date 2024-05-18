@@ -98,16 +98,18 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
   }, [children, setSlideIndex, setTotalLength]);
 
   return (
-    <S.SlidesContainer ref={slidesContainerRef} slideIndex={slideIndex}>
-      {children.map((child, idx) => (
-        <S.Slide key={idx} aria-hidden={idx !== slideIndex}>
-          {child}
-        </S.Slide>
-      ))}
+    <>
+      <S.SlidesContainer ref={slidesContainerRef} slideIndex={slideIndex}>
+        {children.map((child, idx) => (
+          <S.Slide key={idx} aria-hidden={idx !== slideIndex}>
+            {child}
+          </S.Slide>
+        ))}
+      </S.SlidesContainer>
       <VisuallyHidden aria-live="polite">
         {children.length}개 아이템 중 {slideIndex + 1}번째 아이템
       </VisuallyHidden>
-    </S.SlidesContainer>
+    </>
   );
 };
 
