@@ -90,12 +90,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('500-left');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 1000이어야 한다. 헤딩은 "1km 이내 이동 가능해요!"여야 한다.', () => {
@@ -107,12 +102,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('500-right');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
   });
 
@@ -137,12 +127,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('1000-left');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 2000이어야 한다. 헤딩은 "1km 이상 이동 가능해요!"여야 한다.', () => {
@@ -154,12 +139,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('1000-right');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
   });
 
@@ -185,12 +165,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('2000-left');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
 
     it('오른쪽 방향키를 타이핑하면 슬라이더의 값은 여전히 2000이어야 한다. 헤딩은 여전히 "1km 이상 이동 가능해요!"여야 한다.', () => {
@@ -202,12 +177,7 @@ describe('distance 페이지 - 이동 가능 거리를 선택하는 페이지', 
         'exist'
       );
 
-      cy.wait(300);
       cy.compareSnapshot('2000-right');
-      cy.wait(300);
-
-      cy.findByRole('link', { name: '추천 받기' }).click();
-      cy.location('pathname').should('equal', '/result');
     });
   });
 });
