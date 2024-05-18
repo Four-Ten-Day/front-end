@@ -15,7 +15,10 @@ const Mode: NextPageWithLayout = () => {
     <>
       <Head>
         <title>오놀 | 누구랑</title>
-        <meta name="robots" content="noindex" />
+        <meta
+          name="description"
+          content="차분히 혼자 시간을 즐길지, 신나게 친구들과 놀지 선택해보세요."
+        />
       </Head>
 
       <Ellipsis current={1} total={3} />

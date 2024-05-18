@@ -52,7 +52,7 @@ const Result: NextPageWithLayout<
     <>
       <Head>
         <title>오놀 | 추천 놀거리</title>
-        <meta name="robots" content="noindex" />
+        <meta name="description" content="추천해준 장소로 떠나보세요." />
       </Head>
 
       <Category place={place} popPlace={popPlace} />
