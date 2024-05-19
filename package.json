@@ -13,7 +13,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@radix-ui/react-slider": "^1.1.2",
-    "cypress-visual-regression": "^5.0.0",
     "iron-session": "^8.0.1",
     "next": "14.2.3",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -32,6 +31,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "cypress": "^13.9.0",
+    "cypress-visual-regression": "^5.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "typescript": "^5"
