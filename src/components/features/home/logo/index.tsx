@@ -7,9 +7,8 @@ export default function Logo() {
       <Image
         src={'/images/logo.webp'}
         alt="오놀 로고"
-        width={56}
-        height={56}
-        unoptimized
+        width={44}
+        height={40}
         priority
       />
     </S.Header>
