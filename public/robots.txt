@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://o-nol.vercel.app
+
+# Sitemaps
+Sitemap: https://o-nol.vercel.app/sitemap.xml

@@ -18,6 +18,12 @@
     },
     "types": ["kakao.maps.d.ts", "cypress", "@testing-library/cypress"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "postcss.config.js",
+    "next-sitemap.config.js"
+  ],
   "exclude": ["node_modules"]
 }

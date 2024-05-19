@@ -20,6 +20,10 @@ const Home: NextPageWithLayout = () => {
           name="keywords"
           content="주변 놀거리 추천, 데이트 장소 추천, 오늘 뭐하고 놀지, 오놀"
         />
+        <meta
+          name="google-site-verification"
+          content="-MvQb0jWvNxZW5yrI9BSiaapIq6JMSd5pRIiNhWp8Qc"
+        />
       </Head>
 
       <Logo />
