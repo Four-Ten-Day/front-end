@@ -69,7 +69,7 @@ const Result: NextPageWithLayout<
 export const getServerSideProps = (async ({ query }) => {
   const { mode, interests, distance, lat, lng } = query;
 
-  const modeCategories = !mode
+  const modeCategories = !modeFixture[mode as NonNullable<ModeValue>]
     ? new Set<string>()
     : modeFixture[mode as NonNullable<ModeValue>];
 
