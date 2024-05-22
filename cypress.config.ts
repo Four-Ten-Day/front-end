@@ -18,4 +18,7 @@ export default defineConfig({
       configureVisualRegression(on);
     },
   },
+
+  viewportWidth: 393,
+  viewportHeight: 852,
 });

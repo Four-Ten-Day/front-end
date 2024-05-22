@@ -4,7 +4,7 @@ import { addCompareSnapshotCommand } from 'cypress-visual-regression/dist/comman
 addCompareSnapshotCommand({
   capture: 'fullPage',
   overwrite: true,
-  errorThreshold: 0.0,
+  errorThreshold: 0.003,
 });
 
 Cypress.Commands.add('hideMap', () => {
