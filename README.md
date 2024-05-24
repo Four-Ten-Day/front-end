@@ -2,11 +2,17 @@
 
 ### Overview
 
-- 기존 [리액트로 구현된 프로젝트](https://github.com/Four-Ten-Day/front-end/tree/react)를 Next(Pages Router)로 포팅한 프로젝트입니다.
+- '오늘 무엇하고 놀까'라는 고민에서 벗어날 수 있도록 원하는 컨셉을 입력하면, 카카오지도 공개 API를 기반으로 내 주변 컨셉에 맞는 놀거리와 장소를 랜덤으로 추천해드리는 서비스입니다.
+- 쉬운 사용성, 테마 필터와 GPS 활용을 통한 맞춤형 정보제공이 특징인 서비스입니다.
 - 배포된 프로젝트는 [여기서](https://o-nol.vercel.app/) 확인해보실 수 있습니다.
+
+### 서비스 미리보기
+
+![2024-05-2413-04-29-ezgif com-video-to-gif-converter](https://github.com/Four-Ten-Day/front-end/assets/76683390/99b37e74-40b8-4740-90c1-15235fba5724)
 
 ### 성능 개선
 
+- 기존 리액트로 구현된 프로젝트를 Next로 포팅하였습니다.
 - 적절한 렌더링 전략을 선택하여 웹 성능 지표들을 크게 향상시켰습니다.
 
 ### 접근성 개선
